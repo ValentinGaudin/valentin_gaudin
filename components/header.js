@@ -1,8 +1,6 @@
-import Link from 'next/link'
 import Meta from './meta';
 import MobileNav from './MobileNav';
 import Navigation from './Nav';
-
 
 export default function Header({info}) {
     info

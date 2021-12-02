@@ -33,8 +33,6 @@ const Mail = () => {
 
     return (
         <div >
-
-                <h4 className="text-2xl text-center"> <span></span> Contact</h4>
                 <form className="p-4 m-2 gap-5" ref={form} onSubmit={sendmail}>
                     <div className="form flex flex-col">
                         <div>
