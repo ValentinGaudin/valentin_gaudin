@@ -1,0 +1,40 @@
+#littleName h1{
+    display: block;
+    width: fit-content;
+    position: relative;
+    color: var($primary);
+    animation: none;
+}
+#littleName h1 span{
+    position: absolute;
+    text-decoration: none;
+    color: white;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 0;
+    animation: block 2s ease;
+}
+.littleBoy{
+    width: 300px;
+    mix-blend-mode: difference;
+}
+
+.item {
+    margin-top: 10px;
+    &:hover{
+        color: $purple;
+    }
+}
+
+
+@keyframes block {
+    50%{
+        width: 100%;
+        right: 0;
+    }
+    100%{
+        width: 0;
+        right: 100%;
+    }
+}

@@ -8,12 +8,34 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^1.6.22",
+    "@mdx-js/react": "^2.0.0-rc.2",
+    "@next/mdx": "^12.0.4",
+    "date-fns": "^2.27.0",
+    "emailjs": "^3.7.0",
+    "emailjs-com": "^3.2.0",
+    "markdown-loader": "^6.0.0",
     "next": "12.0.4",
+    "next-compose-plugins": "^2.2.1",
+    "next-mdx-enhanced": "^5.0.0",
+    "next-mdx-remote": "^3.0.8",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "reading-time": "^1.5.0",
+    "remark": "^14.0.2",
+    "remark-html": "^15.0.1",
+    "sass": "^1.43.5"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/preset-env": "^7.16.4",
+    "@types/classnames": "^2.3.1",
+    "autoprefixer": "^10.4.0",
+    "babel-loader": "^8.2.3",
     "eslint": "7.32.0",
-    "eslint-config-next": "12.0.4"
+    "eslint-config-next": "12.0.4",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19",
+    "webpack": "^5.64.4"
   }
 }

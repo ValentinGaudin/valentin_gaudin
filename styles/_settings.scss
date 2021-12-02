@@ -1,0 +1,40 @@
+$primary: #dbdbdb;
+$secondary: #373737;
+$fill: #0e1212;
+$purple : #682ae9;
+$secondary: #EAFE16;
+$ternary: #FFBB17;
+$bg-light: radial-gradient(var(--bg),transparent,var(--purple) 130%);
+$header-link: #dbdbdb;
+$header-link-hover: #682ae9;
+$header-link-hover-icon: #dbdbdb;
+$header-link-active: #555;
+$black: #0e1212;
+$bg-rgb: 14,18,18;
+$gray: grey;
+$comment: #555;
+$blue: #03fce8;
+
+
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Dosis', sans-serif;
+}
+a {
+    text-decoration: none;
+}
+html{
+    background-color: $fill;
+    color: $primary;
+}
+ul li{
+    list-style: none;
+}
+ul li a{
+    text-decoration: none;
+}
+@mixin textShadow($purple){
+    text-shadow: 10px 0px 50px $purple;
+}

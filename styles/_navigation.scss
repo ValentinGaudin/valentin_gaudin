@@ -1,0 +1,66 @@
+
+nav{
+    position: relative;
+    font-size: 2em;
+}
+nav ul li a:hover{
+    color: $header-link-hover;
+    opacity: 0.8;
+    transition: transform 2s ease-in;
+}
+nav ul li{
+    position: relative;
+    font-size: xx-large;
+    margin-top: 32px;
+    margin: 20px;
+        a{
+        color: $header-link-active;
+            &::after{
+                content: "";
+                width: 0;
+                height: 2px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                transform: scale(0);
+                transition: transform 0.3s ease-in-out;
+                background-color: $header-link-hover;
+                &:hover{
+                    color: $header-link-hover;
+                    opacity: 0.8;
+                    transition: transform 0.3s ease-in-out;
+                }
+            }
+        }
+}
+nav ul li a:hover::after{
+        transform: scale(1);
+        width: 100%;
+        opacity: 0.8;
+    }
+.text {
+    color: $primary;
+        strong{
+            font-size: 3em;
+        }
+}
+
+@media screen and (max-width: 1024px) {
+    .text p{
+            span{
+                display: none;
+            }
+        }
+    .nav ul li{
+        font-size: 0.7em;
+        align-items: flex-end;
+    }
+}
+@media screen and (max-width: 576px) {
+    .text {
+        display: none;
+        }
+
+}
+
+

@@ -1,0 +1,12 @@
+.navBar button{
+    cursor: pointer;
+}
+.shownav{
+    visibility: visible;
+    bottom: 0;
+}
+.hidenav{
+    visibility: hidden;
+    bottom: -20vh;
+}
+
