@@ -1,8 +1,11 @@
 {
   "name": "portfolio",
+  "author" : "Valentin Gaudin",
+  "description": "Portfolio of Gaudin Valentin",
+  "homepage": "https://https://github.com/ValentinGaudin/valentin_gaudin",
   "version": "1.1.0",
-  "main": "index.js",
   "license": "UNLICENSED",
+  "main": "index.js",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -28,7 +31,8 @@
     "reading-time": "^1.5.0",
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
-    "sass": "^1.43.5"
+    "sass": "^1.43.5",
+    "semver": "^7.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

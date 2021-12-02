@@ -9,6 +9,7 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import Nav from '../../components/Nav'
+import Meta from '../../components/meta'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -18,6 +19,7 @@ export default function Post({ post, morePosts, preview }) {
   return (
 
     <Layout preview={preview}>
+      <Meta />
       <Nav />
       <Container >
         {router.isFallback ? (
@@ -29,7 +31,6 @@ export default function Post({ post, morePosts, preview }) {
                 <title>
                   {post.title}
                 </title>
-                <meta property="og:image" />
               </Head>
               <PostHeader
                 title={post.title}
@@ -55,7 +56,6 @@ export async function getStaticProps({ params }) {
     'slug',
     'author',
     'content',
-    'ogImage',
     'coverImage',
   ])
   const content = await markdownToHtml(post.content || '')
