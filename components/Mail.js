@@ -59,8 +59,8 @@ const Mail = () => {
                                 />
                         </FormControl>
                     </div>
-                    <div>
-                        <FormControl className="m-2 p-4  other">
+                    <div className="mt-5">
+                        <FormControl className="m-2 p-4 other">
                             <InputLabel className="mt-2" htmlFor="my-input">Email :</InputLabel>
                                 <Input
                                     id="my-input"
@@ -74,8 +74,8 @@ const Mail = () => {
                             </FormHelperText>
                         </FormControl>
                     </div>
-                    <div>
-                    <FormControl className="m-2 p-4  message">
+                    <div className="mt-5" >
+                    <FormControl className="m-2 p-4 message">
                             <InputLabel className="mt-2" htmlFor="my-input">Message :</InputLabel>
                                 <Input
                                     id="my-input"

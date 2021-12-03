@@ -60,7 +60,7 @@ h4 span {
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.social Image {
+.social {
   filter: invert(97%) brightness(80%);
 }
 
