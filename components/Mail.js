@@ -49,7 +49,7 @@ const Mail = () => {
                 <div className="form flex flex-col">
                     <div>
                     <FormControl className="m-2 p-4 other">
-                            <InputLabel className="mt-4" htmlFor="my-input">Name</InputLabel>
+                            <InputLabel className="mt-2" htmlFor="my-input">Name</InputLabel>
                                 <Input
                                     id="my-input"
                                     aria-describedby="my-helper-text"
