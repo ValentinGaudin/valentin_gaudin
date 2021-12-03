@@ -1,10 +1,9 @@
 import Head from 'next/head'
-const favicon = './assets/favicon/Mario.png'
+const favicon = './assets/Mario.png'
 
 export default function Meta() {
     return (
         <Head>
-            <link rel="manifest" href="/favicons/site.webmanifest" />
             <meta name="msapplication-TileColor" content="#0e1212" />
             {/* <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml" /> */}
             <meta name="theme-color" content="#0e1212" />
