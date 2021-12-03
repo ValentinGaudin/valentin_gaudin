@@ -30,14 +30,12 @@
     border: 1px solid #eaeaea;
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
-    &:hover{
-        &:focus{
-            &:active{
-                color: $blue;
-                border-color: $blue;
-            }
-        }
-    }
+}
+.card:hover,
+.card:focus,
+.card:active {
+    color: $blue;
+    border-color: $blue;
 }
 .card p {
     margin: 0;

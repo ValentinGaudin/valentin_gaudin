@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "author" : "Valentin Gaudin",
+  "author": "Valentin Gaudin",
   "description": "Portfolio of Gaudin Valentin",
   "homepage": "https://https://github.com/ValentinGaudin/valentin_gaudin",
   "version": "1.1.0",
@@ -14,8 +14,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/react": "^2.0.0-rc.2",
+    "@mui/material": "^5.2.2",
+    "@mui/styled-engine-sc": "^5.1.0",
     "@next/mdx": "^12.0.4",
     "date-fns": "^2.27.0",
     "emailjs": "^3.7.0",
@@ -32,7 +36,9 @@
     "remark": "^14.0.2",
     "remark-html": "^15.0.1",
     "sass": "^1.43.5",
-    "semver": "^7.3.5"
+    "semver": "^7.3.5",
+    "styled-components": "^5.3.3",
+    "sweetalert2": "^11.2.1"
   },
   "devDependencies": {
     "@babel/core": "^7.16.0",

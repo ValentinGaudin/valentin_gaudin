@@ -1,8 +1,39 @@
 .form{
     color: $primary;
-    background-color: var($fill);
     display: block;
     justify-content: center;
     align-items: center;
-    
+}
+.other{
+    color: $primary;
+    background-color: $primary;
+    border-radius: 5px;
+    width: 30vw;
+    height: 13vh;
+}
+.message{
+    color: $primary;
+    background-color: $primary;
+    border-radius: 5px;
+    width: 30vw;
+    height: 20vh;
+}
+.button {
+    border: none;
+    color: #090909;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #e8e8e8;
+    border: 1px solid #e8e8e8;
+    transition: all .3s;
+    box-shadow: 3px 3px 6px #c5c5c5,
+                -3px -3px 6px #ffffff;
+    cursor: pointer;
+}
+.button:hover,
+.button:active {
+    border: 1px solid $blue;
+    box-shadow: 4px 4px 6px $blue,
+    -4px -4px 6px $blue;
 }
