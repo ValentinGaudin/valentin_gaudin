@@ -6,7 +6,7 @@ export default function Meta() {
         <Head>
             <link rel="manifest" href="/favicons/site.webmanifest" />
             <meta name="msapplication-TileColor" content="#0e1212" />
-            <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml" />
+            {/* <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml" /> */}
             <meta name="theme-color" content="#0e1212" />
             <link rel="shortcut icon" type="image/png" href={favicon} />
             <link rel="alternate" type="application/rss+xml" href="/feed.xml"
