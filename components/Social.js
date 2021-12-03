@@ -1,5 +1,5 @@
 import Image from 'next/image';
-const Insta = '/public/assets/icon/instagram.svg';
+const Insta = '/assets/icon/instagram.svg';
 const Git = '/assets/icon/github.svg';
 const Linkedin = '/assets/icon/linkedin.svg';
 
