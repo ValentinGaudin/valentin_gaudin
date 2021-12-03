@@ -4,6 +4,7 @@ import Mail from '../components/Mail';
 
 
 const Contact = () => {
+    
     return (
         <div>
             <Header 
