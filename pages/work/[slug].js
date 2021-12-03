@@ -9,7 +9,7 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import Nav from '../../components/Nav'
-import Meta from '../../components/meta'
+import Meta from '../../components/Meta'
 import Link from 'next/link'
 
 export default function Post({ post, morePosts, preview }) {

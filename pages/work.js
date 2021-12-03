@@ -2,10 +2,9 @@ import Footer from '../components/Footer';
 import Container from '../components/container'
 import MoreStories from '../components/more-post'
 import HeroPost from '../components/hero-post'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
-import Nav from '../components/Nav';
 import Header from '../components/header';
 
 export default function Work({ allPosts }) {

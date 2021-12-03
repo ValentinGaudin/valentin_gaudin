@@ -1,6 +1,5 @@
 import Footer from '../components/Footer';
 import Xperience from '../components/Xperience';
-import Header from '../components/header';
 const Home = () => {
 
     return (

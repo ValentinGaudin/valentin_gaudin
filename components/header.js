@@ -1,4 +1,4 @@
-import Meta from './meta';
+import Meta from './Meta';
 import MobileNav from './MobileNav';
 import Navigation from './Nav';
 
