@@ -10,13 +10,13 @@ export default function HeroPost({
     slug,
 }) {
     return (
-        <section>
-            <div className="mb-8 md:mb-16 mt-36 w-8/12 mx-auto">
+        <section className="card">
+            <div className="mb-8 md:mb-16 mt-36 h-4/6 w-8/12 mx-auto">
                 <CoverImage
                 title={title}
                 src={coverImage}
                 slug={slug}
-                height={220}
+                height={200}
                 width={240}
                 />
             </div>

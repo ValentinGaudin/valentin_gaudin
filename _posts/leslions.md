@@ -15,12 +15,14 @@ With my team we decided to make a showcase site for the city of Lyon. Following 
 
 
 
-1.Static website in HTML & CSS <br>
-2.Responsive design: Real reflection on display, not just element resizing.<br>
-3.Visual consistency: The pages do not have different graphic styles.<br>
-4.Correct presentation of the project with contextualization: "Why this site was developed"<br>
-5.Collaborative teamwork and management of possible first human conflicts<br>
-6.Basic use of Git / GitHub and early code conflicts.<br>
+1.Static website in HTML & CSS 
+2.Responsive design: Real reflection on display, not just element resizing.
+3.Visual consistency: The pages do not have different graphic styles.
+4.Correct presentation of the project with contextualization: "Why this site was developed"
+5.Collaborative teamwork and management of possible first human conflicts
+6.Basic use of Git / GitHub and early code conflicts.
+
+
 
 We are rather proud of the result. Do not hesitate to see the repository link on GitHub.
 Develop with : 

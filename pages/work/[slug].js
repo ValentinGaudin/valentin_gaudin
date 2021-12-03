@@ -10,6 +10,7 @@ import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
 import Nav from '../../components/Nav'
 import Meta from '../../components/meta'
+import Link from 'next/link'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -39,8 +40,14 @@ export default function Post({ post, morePosts, preview }) {
                 author={post.author}
               />
               <PostBody content={post.content}/>
-              <p className="text-center mt-4">{post.link}</p>
-            </article>
+                <div className="text-center mt-4" >
+                    <Link as={post.link} href="[post.link]">
+                    <a> 
+                      {post.link}
+                    </a>
+                    </Link>
+                </div>
+              </article>
           </>
         )}
       </Container>
