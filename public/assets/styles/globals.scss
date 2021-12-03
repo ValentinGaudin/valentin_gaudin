@@ -67,18 +67,17 @@ h4 span{
   margin-right: 1px;
 }
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import "public/assets/styles/_social.scss";
-@import "public/assets/styles/_skills.scss";
-@import "public/assets/styles/_settings.scss";
-@import "public/assets/styles/_navigation.scss";
-@import "public/assets/styles/_navBar.scss";
-@import "public/assets/styles/_footer.scss";
-@import "public/assets/styles/_404.scss";
-@import "public/assets/styles/_work.scss";
-@import "public/assets/styles/_markdown.scss";
-@import "public/assets/styles/_form.scss";
+@import "public/assets/styles/social.scss";
+@import "public/assets/styles/skills.scss";
+@import "public/assets/styles/settings.scss";
+@import "public/assets/styles/navigation.scss";
+@import "public/assets/styles/navBar.scss";
+@import "public/assets/styles/footer.scss";
+@import "public/assets/styles/404.scss";
+@import "public/assets/styles/work.scss";
+@import "public/assets/styles/markdown.scss";
+@import "public/assets/styles/form.scss";

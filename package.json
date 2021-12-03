@@ -12,7 +12,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "compile-sass": "node-sass /assets/sass/main.scss public/build/css/main.css"
+    "compile-sass": "node-sass public/assets/styles/global.scss public/assets/styles/main.css"
   },
   "dependencies": {
     "@emotion/react": "^11.7.0",
