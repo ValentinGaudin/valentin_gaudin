@@ -56,7 +56,7 @@ const Navigation=() => {
                             </Link>
                         </li>
                         <li>
-                            <a href="/assets/CV_Valentin_gaudin.pdf" target="_blank" rel="noopener noreferrer">
+                            <a href="/public/assets/CV_Valentin_gaudin.pdf" target="_blank" rel="noopener noreferrer">
                             .Cv()
                             </a>
                         </li>

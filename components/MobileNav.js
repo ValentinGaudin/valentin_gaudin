@@ -32,7 +32,7 @@ const MobileNav = () => {
                             </Link>
                         </li>
                         <li className="navbar__link">
-                            <a href="/assets/CV_Valentin_gaudin.pdf" target="_blank" rel="noopener noreferrer">
+                            <a href="/public/assets/CV_Valentin_gaudin.pdf" target="_blank" rel="noopener noreferrer">
                             .Cv()
                             </a>
                         </li>
