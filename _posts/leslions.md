@@ -12,9 +12,9 @@ ogImage:
 
 First educational project within the wild. After two weeks of studies on the basics of development, we had to train our first teams to be able to develop our first static application.
 With my team we decided to make a showcase site for the city of Lyon. Following a few guidelines:
-<br>
---
-<br>
+
+
+
 1.Static website in HTML & CSS <br>
 2.Responsive design: Real reflection on display, not just element resizing.<br>
 3.Visual consistency: The pages do not have different graphic styles.<br>
