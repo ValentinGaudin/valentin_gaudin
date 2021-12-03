@@ -22,19 +22,19 @@ const MobileNav = () => {
                             </Link>
                         </li>
                         <li className="navbar__link">
-                            <Link href="/Work">
+                            <Link href="/work">
                             .Work()
                             </Link>                            
                         </li>
                         <li className="navbar__link">
-                            <Link href="/Contact">
+                            <Link href="/contact">
                             .Contact()
                             </Link>
                         </li>
                         <li className="navbar__link">
-                            <Link href="/Contact">
-                            .CV()
-                            </Link>
+                            <a href="/assets/CV_Valentin_gaudin.pdf" target="_blank" rel="noopener noreferrer">
+                            .Cv()
+                            </a>
                         </li>
                     </ul>
                 </nav>
