@@ -1,19 +1,49 @@
 import Head from 'next/head'
-const favicon = './assets/Mario.png'
 
 export default function Meta() {
     return (
         <Head>
+            <link
+                rel="apple-touch-icon"
+                sizes="180x180"
+                href="/..//favicons/apple-touch-icon.png"
+            />
+            <link
+                rel="icon"
+                type="image/png"
+                sizes="32x32"
+                href="/..//favicons/favicon-32x32.png"
+            />
+            <link
+                rel="icon"
+                type="image/png"
+                sizes="16x16"
+                href="/..//favicons/favicon-16x16.png"
+            />
+            <link
+                rel="android-chrome"
+                type="image/png"
+                sizes="192x192"
+                href="/..//favicons/android-chrome-192x192.png"
+            />
+            <link
+                rel="android-chrome"
+                type="image/png"
+                sizes="512x512"
+                href="/..//favicons/android-chrome-512x512.png"
+            />
+            <link rel="manifest" href="/..//favicons/site.webmanifest" />
+            <link rel="shortcut icon" type="image/png" href="/..//favicons/favicon.ico" />
+
+            <meta name="msapplication-TileColor" content="#000000" />
+            <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+            <meta name="theme-color" content="#00000" />
             <meta name="msapplication-TileColor" content="#0e1212" />
-            {/* <meta name="msapplication-config" content="/assets/favicons/browserconfig.xml" /> */}
             <meta name="theme-color" content="#0e1212" />
-            <link rel="shortcut icon" type="image/png" href={favicon} />
-            <link rel="alternate" type="application/rss+xml" href="/feed.xml"
-            />
-            <meta
-                name="description"
-                content="My portfolio about me and my work on web devlopment using Next.js "
-            />
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <meta name="description" content="My portfolio about me and my work on web devlopment using Next.js " />
             <title>Valentin Gaudin</title>
         </Head>
     )
