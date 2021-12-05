@@ -46,11 +46,11 @@ const Mail = () => {
     return (
         <div>
             <form className="" ref={form} onSubmit={sendmail}>
-                <div className="form flex flex-col">
+                <div className="form flex flex-col ">
                     <div>
                     <FormControl className="m-2 p-4 other">
-                            <InputLabel className="mt-2" htmlFor="my-input">Name</InputLabel>
-                                <Input
+                            <InputLabel className="mt-2 " htmlFor="my-input">Name</InputLabel>
+                                <Input required
                                     id="my-input"
                                     aria-describedby="my-helper-text"
                                     value={name}
@@ -62,7 +62,7 @@ const Mail = () => {
                     <div className="mt-5">
                         <FormControl className="m-2 p-4 other">
                             <InputLabel className="mt-2" htmlFor="my-input">Email :</InputLabel>
-                                <Input
+                                <Input required
                                     id="my-input"
                                     aria-describedby="my-helper-text"
                                     value={email}
@@ -77,7 +77,7 @@ const Mail = () => {
                     <div className="mt-5" >
                     <FormControl className="m-2 p-4 message">
                             <InputLabel className="mt-2" htmlFor="my-input">Message :</InputLabel>
-                                <Input
+                                <Input required
                                     id="my-input"
                                     color="primary"
                                     aria-describedby="my-helper-text"
@@ -87,6 +87,7 @@ const Mail = () => {
                                 />
                     </FormControl>
                         </div>
+                        
                             <input 
                                 className="mt-4 mb-4 button"
                                 value="Envoyer"

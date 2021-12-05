@@ -8,9 +8,8 @@ import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import markdownToHtml from '../../lib/markdownToHtml'
-import Nav from '../../components/Nav'
-import Meta from '../../components/Meta'
 import Link from 'next/link'
+import Header from '../../components/header'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
@@ -20,8 +19,8 @@ export default function Post({ post, morePosts, preview }) {
   return (
 
     <Layout preview={preview}>
-      <Meta />
-      <Nav />
+      <Header 
+      info="Project"/>
       <Container >
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>

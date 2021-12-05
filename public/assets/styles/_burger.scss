@@ -1,0 +1,59 @@
+// BURGER
+.hamburger {
+  width: 40px;
+  height: 40px;
+  transition: all 0.25s;
+}
+.hamburger_top-bun{
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background: $purple;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+.hamburger_middle-bun {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: $secondary;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+.hamburger_bottom-bun{
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: $ternary;
+  transform: rotate(0);
+  transition: all 0.5s;
+}
+
+
+.hamburger_top-bun {
+  transform: translateY(-10px);
+}
+.hamburger_middle-bun {
+  transform: translateY(0px);
+}
+.hamburger_bottom-bun {
+  transform: translateY(10px);
+}
+.open .hamburger_top-bun {
+  width: 0px;
+}
+.open .hamburger_middle-bun {
+  transform:
+  rotate(45deg);
+}
+.open .hamburger_bottom-bun {
+  transform:
+  rotate(-45deg);
+  width: 40px;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
