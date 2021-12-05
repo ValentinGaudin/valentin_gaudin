@@ -1,4 +1,4 @@
-import PostTitle from '../components/post-title'
+import PostTitle from './post-title'
 import CoverImage from './cover-image'
 import DateFormatter from './date-formatter'
 

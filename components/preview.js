@@ -1,4 +1,4 @@
-import DateFormatter from '../components/date-formatter';
+import DateFormatter from './date-formatter';
 import CoverImage from './cover-image';
 import Link from 'next/link';
 
@@ -20,10 +20,10 @@ return (
                 width={566}
             />
         </div>
-        <h4 className="text-3xl mb-3 leading-snug">
+        <h4 className="text-3xl mb-3 leading-snug title">
             
             <Link as={`/work/${slug}`} href="/work/[slug]">
-                <a className="hover:underline">
+                <a className="hover:underline ">
                 <span></span>
                 {title}
                 </a>

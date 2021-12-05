@@ -1,6 +1,6 @@
 ---
 title: 'What i learn to do this application.'
-excerpt: 'About three months i leave the French army. Actually in a retraining from the army to web development. This is about how i lunch this website'
+excerpt: 'About three months i leave the French army. Actually in a retraining from the army to web development. This is about how i launch this website'
 coverImage: '/assets/work/helloworld/cover.jpg'
 date: '2021-12-01T14:35:07.322Z'
 author:

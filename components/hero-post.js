@@ -11,7 +11,7 @@ export default function HeroPost({
 }) {
     return (
         <section className="card">
-            <div className="mb-8 md:mb-16 mt-36 h-4/6 w-8/12 mx-auto">
+            <div className="mb-8 md:mb-16 mt-10 h-4/6 w-8/12 mx-auto">
                 <CoverImage
                 title={title}
                 src={coverImage}
@@ -20,7 +20,7 @@ export default function HeroPost({
                 width={240}
                 />
             </div>
-            <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
+            <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 ">
                 <div>
                     <h4 className="mb-4 text-4xl lg:text-6xl leading-tight">
                         <Link as={`/work/${slug}`} href="/work/[slug]">
