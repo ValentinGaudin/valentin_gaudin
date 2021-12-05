@@ -7,7 +7,7 @@ export default function MoreStories({ posts }) {
         <span></span>
             About me and my Work :
         </h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
+            <div className="grid md:grid-cols-2 md:gap-x-16 lg:gap-x-32 gap-y-20 md:gap-y-32 mb-32">
                 {posts.map((post) => (
                 <Preview
                     key={post.slug}

@@ -11,7 +11,7 @@ export default function PostPreview({
 }) {
 return (
     <div className="card">
-        <div className=" mb-5 w-8/12 mx-auto">
+        <div className=" mb-5 mx-auto w-full">
             <CoverImage
                 slug={slug}
                 title={title}
@@ -20,7 +20,7 @@ return (
                 width={566}
             />
         </div>
-        <h4 className="text-3xl mb-3 leading-snug title">
+        <h4 className="text-3xl mb-3 leading-snug title w-full">
             
             <Link as={`/work/${slug}`} href="/work/[slug]">
                 <a className="hover:underline ">
