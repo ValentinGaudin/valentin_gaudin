@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
-import PostHeader from '../../components/post-header'
+import Headerpost from '../../components/Header-post'
 import Layout from '../../components/Layout'
 import { getPostBySlug, getAllPosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
@@ -32,7 +32,7 @@ export default function Post({ post, morePosts, preview }) {
                   {post.title}
                 </title>
               </Head>
-              <PostHeader
+              <Headerpost
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
