@@ -46,9 +46,9 @@ const Mail = () => {
     return (
         <div>
             <form className="" ref={form} onSubmit={sendmail}>
-                <div className="form flex flex-col ">
+                <div className="form flex flex-col mx-auto w-full">
                     <div>
-                    <FormControl className="m-2 p-4 other">
+                    <FormControl className="m-2 p-4 other flex mx-auto">
                             <InputLabel className="mt-2 " htmlFor="my-input">Name</InputLabel>
                                 <Input required
                                     id="my-input"
@@ -60,7 +60,7 @@ const Mail = () => {
                         </FormControl>
                     </div>
                     <div className="mt-5">
-                        <FormControl className="m-2 p-4 other">
+                        <FormControl className="m-2 p-4 other flex mx-auto">
                             <InputLabel className="mt-2" htmlFor="my-input">Email :</InputLabel>
                                 <Input required
                                     id="my-input"
@@ -75,7 +75,7 @@ const Mail = () => {
                         </FormControl>
                     </div>
                     <div className="mt-5" >
-                    <FormControl className="m-2 p-4 message">
+                    <FormControl className="m-2 p-4 message flex mx-auto">
                             <InputLabel className="mt-2" htmlFor="my-input">Message :</InputLabel>
                                 <Input required
                                     id="my-input"
@@ -89,7 +89,7 @@ const Mail = () => {
                         </div>
                         
                             <input 
-                                className="mt-4 mb-4 button"
+                                className="mt-4 mb-4 button flex mx-auto"
                                 value="Envoyer"
                                 type="submit"
                             />

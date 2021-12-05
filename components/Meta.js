@@ -43,7 +43,7 @@ export default function Meta() {
             <meta charset="UTF-8" />
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta name="description" content="My portfolio about me and my work on web devlopment using Next.js " />
+            <meta name="description" content="My portfolio about me and my work on web devlopment using Next.js" />
             <title>Valentin Gaudin</title>
         </Head>
     )
