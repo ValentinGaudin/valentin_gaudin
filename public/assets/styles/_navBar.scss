@@ -1,12 +1,8 @@
 .navBar button{
     cursor: pointer;
+    background-color: $primary;
+    color: $primary;
 }
-.shownav{
-    visibility: visible;
-    bottom: 0;
+.link{
+    background-color: $fill;
 }
-.hidenav{
-    visibility: hidden;
-    bottom: -20vh;
-}
-

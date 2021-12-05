@@ -1,50 +1,61 @@
-import Link from 'next/link'
-import { useState } from 'react';
-import Image from 'next/image'
-
+import React from 'react';
+import Link from 'next/link';
 
 const MobileNav = () => {
 
-    const [showLinks, setShowLinks] = useState(false)
-    const handleShowLinks = () => {
-        setShowLinks(!showLinks)
+    function toggleMenu() {
+        const btn = document.getElementById('buttonMenu');
+        const nav = document.getElementById('menu');
+        if (getComputedStyle(btn).display === 'block') {
+        btn.classList.toggle('open');
+        nav.classList.toggle('flex');
+        nav.classList.toggle('hidden');
+        document.body.classList.toggle('non-scrollable');
+        }
     }
 
-
     return (
-        <div className="navbar md:hidden fixed right-10 bottom-10 z-10">
-            <div className={`${showLinks ? "shownav" : "hidenav"} nav`}>
-                <nav className="navigation flex flex-row text-md mb-5">
-                    <ul className="navbar__links" id="navBG">
-                        <li className="navbar__link">
-                            <Link href="/" >
+        <div className="navbar md:hidden fixed w-full z-10">
+                <nav id='site-menu' className="navigation text-md w-full justify-center items-center mt-10" >
+                        <div className="z-40 w-full md:w-auto mx-auto flex flex-row-reverse items-center absolute right-5 top-5">
+                            <button
+                                id='buttonMenu'
+                                aria-label='Toggle Mobile Menu'
+                                className='hamburger block md:hidden focus:outline-none absolute right-5'
+                                type='button'
+                                onClick={toggleMenu}
+                            >
+                                
+                            <span className='hamburger_top-bun'></span>
+                            <span className='hamburger_middle-bun'></span>
+                            <span className='hamburger_bottom-bun'></span>
+                            </button>
+                        </div>
+                    <div id="menu" className="link no-scrollbar w-full md:self-center md:flex flex-col items-center h-screen hidden overflow-x-scroll">
+                    <ul className="navbar__links mt-10" id="navigation">
+                        <li className="link">
+                            <Link  onClick={toggleMenu} href="/" >
                             .Home()
                             </Link>
                         </li>
-                        <li className="navbar__link">
-                            <Link href="/work">
+                        <li className="link">
+                            <Link  onClick={toggleMenu} href="/work">
                             .Work()
                             </Link>                            
                         </li>
-                        <li className="navbar__link">
-                            <Link href="/contact">
+                        <li  className="link">
+                            <Link  onClick={toggleMenu} href="/contact">
                             .Contact()
                             </Link>
                         </li>
                         <li className="navbar__link">
-                            <a href="/CV/CV_Valentin_Gaudin.pdf" target="_blank" rel="noopener noreferrer">
+                            <a href="/CV/CV_Valentin_Gaudin.pdf" target="_blank" rel="noopener noreferrer"  onClick={toggleMenu}>
                             .Cv()
                             </a>
                         </li>
                     </ul>
+                    </div>
                 </nav>
-            </div>
-
-            <div className="absolute right-0 bottom-0 z-10">
-                <button onClick={handleShowLinks}>
-                    <Image src="https://img.icons8.com/nolan/64/menu-2.png" width="30" height="30" alt="Bouton de menu" />
-                </button>
-            </div>
         </div>
     );
 };

@@ -4,8 +4,8 @@ import Navigation from "./NavigationLg";
 const Nav = () => {
     return (
         <div>
-            <Navigation />
-            <MobileNav />
+        <MobileNav />
+        <Navigation />
         </div>
     );
 };
