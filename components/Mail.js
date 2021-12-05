@@ -46,8 +46,8 @@ const Mail = () => {
     return (
         <div>
             <form className="" ref={form} onSubmit={sendmail}>
-                <div className="form flex flex-col mx-auto w-full">
-                    <div>
+                <div className="form flex flex-col mx-auto w-full  ">
+                    <div className="mx-auto flex w-full">
                     <FormControl className="m-2 p-4 other flex mx-auto">
                             <InputLabel className="mt-2 " htmlFor="my-input">Name</InputLabel>
                                 <Input required
@@ -59,7 +59,7 @@ const Mail = () => {
                                 />
                         </FormControl>
                     </div>
-                    <div className="mt-5">
+                    <div className="mt-5 mx-auto flex w-full">
                         <FormControl className="m-2 p-4 other flex mx-auto">
                             <InputLabel className="mt-2" htmlFor="my-input">Email :</InputLabel>
                                 <Input required
@@ -70,11 +70,11 @@ const Mail = () => {
                                     name="email"
                                 />
                             <FormHelperText className="mb-4" id="my-helper-text">
-                            Je ne partagerais pas ton adresse mail
+                            I will not send share your mail.
                             </FormHelperText>
                         </FormControl>
                     </div>
-                    <div className="mt-5" >
+                    <div className="mt-5 mx-auto flex w-full" >
                     <FormControl className="m-2 p-4 message flex mx-auto">
                             <InputLabel className="mt-2" htmlFor="my-input">Message :</InputLabel>
                                 <Input required
