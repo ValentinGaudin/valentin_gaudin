@@ -46,7 +46,7 @@ const Mail = () => {
     return (
         <div>
             <form className="" ref={form} onSubmit={sendmail}>
-                <div className="form flex flex-col mx-auto w-full  ">
+                <div className="form flex flex-col mx-auto w-full">
                     <div className="mx-auto flex w-full">
                     <FormControl className="m-2 p-4 other flex mx-auto">
                             <InputLabel className="mt-2 " htmlFor="my-input">Name</InputLabel>
