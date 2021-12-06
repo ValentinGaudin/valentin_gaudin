@@ -45,10 +45,10 @@ const Mail = () => {
 
     return (
         <div>
-            <form className="flex flex-col mx-auto" ref={form} onSubmit={sendmail}>
-                <div className="form w-full">
-                    <div className="mx-auto flex w-full">
-                    <FormControl className="m-2 p-4 other flex mx-auto">
+            <form className="flex flex-col justify-items-center items-center" ref={form} onSubmit={sendmail}>
+                <div className="form">
+                    <div className=" flex justify-items-center items-center">
+                    <FormControl className="p-4 other">
                             <InputLabel className="mt-2 " htmlFor="my-input">Name</InputLabel>
                                 <Input required
                                     id="my-input"
@@ -69,8 +69,8 @@ const Mail = () => {
                                     onChange={(e) => { e.preventDefault(); setEmail(e.target.value);}}
                                     name="email"
                                 />
-                            <FormHelperText className="mb-4" id="my-helper-text">
-                            I will not send share your mail.
+                            <FormHelperText className="mb-2" id="my-helper-text">
+                            Not share your mail.
                             </FormHelperText>
                         </FormControl>
                     </div>
