@@ -4,7 +4,7 @@ const Xperience = () => {
         <div className="about containerBoy top-24 mx-20 my-10 md:my-36">
 
         <section id="littleName">
-            <div className="littleBoy md:text-5xl text-xl space-y-5 w-full">
+            <div className="littleBoy md:text-5xl text-md w-full tracking-wider">
                 <h1 className="text-purple">Hello There, I&apos;m <span></span></h1>
                 <h1><span></span></h1>
                 <h1>Valentin Gaudin<span></span></h1>
@@ -25,13 +25,11 @@ const Xperience = () => {
                 <h1 className="md:text-4xl text-2xl font-bold w-full">
                     .Skills()
                 </h1>
-                    
                         <div className="my-5 grid grid-cols-3 gap-4">
                             <div className="my-5 w-full">
                                 <div className="my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5 ">
                                     .Front-End()
                                 </div>
-
                                 <div>
                                     <ul className="title md:text-xl text-sm md:ml-20 ml-12 w-full">
                                         <li className="item"> <span></span>HTML 5</li>
@@ -47,7 +45,6 @@ const Xperience = () => {
                                 <div className=" my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5">
                                     .Back-End()
                                 </div>
-
                                 <div>
                                     <ul className="title md:text-xl text-sm md:ml-20 ml-12 w-full">
                                         <li className="item"> <span></span>PHP</li>
@@ -55,7 +52,6 @@ const Xperience = () => {
                                     </ul>
                                 </div>
                             </div>
-
                         <div className=" my-5">
                             <div className="my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5">
                                 .DBB()

@@ -36,8 +36,8 @@ ul span {
   content: "";
   height: 2px;
   width: 20px;
-  color: #03fce8;
-  border: 2px solid #03fce8;
+  color: #FFBB17;
+  border: 2px solid #FFBB17;
   border-radius: 5px;
   margin-right: 1px;
 }
@@ -51,8 +51,8 @@ h4 span {
   content: "";
   height: 2px;
   width: 20px;
-  color: #03fce8;
-  border: 2px solid #03fce8;
+  color: #EAFE16;
+  border: 2px solid #EAFE16;
   border-radius: 5px;
   margin-right: 1px;
 }
@@ -240,7 +240,6 @@ body {
 .card:focus,
 .card:active {
   color: #03fce8;
-  border-color: #03fce8;
 }
 
 .card p {
@@ -270,9 +269,6 @@ body {
 
 .form {
   color: #dbdbdb;
-  display: block;
-  justify-content: center;
-  align-items: center;
 }
 
 .other {
@@ -292,27 +288,34 @@ body {
 }
 
 .button {
-  font-size: 15px;
-  padding: 0.7em 2.7em;
-  letter-spacing: 0.06em;
-  font-family: inherit;
-  border-radius: 0.6em;
-  border: 2px solid var(#EAFE16);
-  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 253, 156, 0.1) 100%);
-  color: var(#682ae9);
-  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+  border: none;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #e8e8e8;
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+  box-shadow: 3px 3px 6px #c5c5c5, -3px -3px 6px #ffffff;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:active {
+  border: 1px solid #03fce8;
+  box-shadow: 4px 4px 6px #03fce8, -4px -4px 6px #03fce8;
 }
 
 .hamburger {
-  width: 70px;
-  height: 70px;
+  width: 40px;
+  height: 40px;
   transition: all 0.25s;
 }
 
 .hamburger_top-bun {
   content: "";
   position: absolute;
-  width: 30px;
+  width: 10px;
   height: 2px;
   background: #682ae9;
   transform: rotate(0);
@@ -324,7 +327,7 @@ body {
   position: absolute;
   width: 40px;
   height: 2px;
-  background: #682ae9;
+  background: #EAFE16;
   transform: rotate(0);
   transition: all 0.5s;
 }
@@ -332,15 +335,15 @@ body {
 .hamburger_bottom-bun {
   content: "";
   position: absolute;
-  width: 10px;
+  width: 30px;
   height: 2px;
-  background: #682ae9;
+  background: #FFBB17;
   transform: rotate(0);
   transition: all 0.5s;
 }
 
 .hamburger_top-bun {
-  transform: translateY(10px);
+  transform: translateY(-10px);
 }
 
 .hamburger_middle-bun {
@@ -348,28 +351,20 @@ body {
 }
 
 .hamburger_bottom-bun {
-  transform: translateY(-10px);
-}
-
-.open {
-  transform: rotate(90deg);
-  transform: translateY(0px);
+  transform: translateY(10px);
 }
 
 .open .hamburger_top-bun {
-  transform: rotate(45deg) translateY(2px) translateX(5px);
+  width: 0px;
 }
 
 .open .hamburger_middle-bun {
-  transform: rotate(-45deg) translateY(0px);
+  transform: rotate(45deg);
 }
 
 .open .hamburger_bottom-bun {
-  transform: rotate(45deg) translateY(-2px);
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+  transform: rotate(-45deg);
+  width: 40px;
 }
 
 /*# sourceMappingURL=globals.css.map */
