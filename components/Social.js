@@ -6,23 +6,6 @@ const Linkedin = '/assets/icon/linkedin.svg';
 function Social() {
     return (
         <div className="my-10 text-sm md:text-xl">
-            {/* <figure>
-                <div className="">
-                        <div className="relative left-10 mt-2">
-                            <Image src={ Git } alt="Logo Github" width="40" height="40" className=" social git" />
-                        </div>
-                        <p className=" mt-2">GitHub</p>
-                    </a>
-                </div>
-            </figure>
-            <figure className="">
-                    <div className="relative left-10  mt-2">
-
-                        <Image src={ Linkedin } alt="Logo Linkedin" width="40" height="40" className="social linkedin" />
-                        <p className="mt-2">LinkedIn</p>
-                    </div>
-                </a>
-            </figure> */}
             <figure>
                 <a href="https://github.com/ValentinGaudin" target="_blank" rel="noreferrer">
                     <div className="relative left-10  mt-2 flex">
