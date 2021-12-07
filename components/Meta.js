@@ -43,7 +43,7 @@ export default function Meta() {
             <meta charset="UTF-8" />
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <meta name="description" content="Rendez-vous sur le port-folio de Valentin Gaudin, étudiant en développement web au sein de la Wild Code School de Lyon, retrouvez ses réalisations et n'hésitez pas à prendre contact. Etudiant PHP, orienté Green IT et design. />
+            <meta name="description" content="Rendez-vous sur le port-folio de Valentin Gaudin, étudiant en développement web au sein de la Wild Code School de Lyon, retrouvez ses réalisations et n'hésitez pas à prendre contact. Etudiant PHP, orienté Green IT et design." />
             <title>Valentin Gaudin</title>
         </Head>
     )
