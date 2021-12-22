@@ -1,11 +1,13 @@
-import Footer from '../components/Footer';
-import Container from '../components/container'
-import MoreStories from '../components/more-post'
-import HeroPost from '../components/hero-post'
-import Layout from '../components/Layout'
+import Footer from '../component/Footer';
+import Container from '../component/container'
+import MoreStories from '../component/more-post'
+import HeroPost from '../component/hero-post'
+import Layout from '../component/Layout'
 import { getAllPosts } from '../lib/api'
 import Head from 'next/head'
-import Header from '../components/header';
+import Header from '../component/Header';
+import Title from '../component/Title';
+
 
 export default function Work({ allPosts }) {
 
@@ -14,9 +16,8 @@ export default function Work({ allPosts }) {
 
     return (
         <div>
-                <Header 
-                info="Work"
-                />
+                <Header/>
+                <Title info="Work"/>
                 <Layout>
                 <Head>
                 </Head>

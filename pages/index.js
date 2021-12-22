@@ -1,13 +1,18 @@
 import React from 'react';
-import Header from '../components/header';
-import Home from './home';
+import Footer from '../component/Footer';
+import Header from '../component/Header';
+import Title from '../component/Title';
+import Xperience from '../component/Xperience';
+
 
 export default function Index() {
+  
   return (
     <div>
-      <Header 
-      info="Home"/>
-      <Home />
+      <Header />
+      <Title info="Home"/>
+      <Xperience />
+      <Footer />
     </div>
   )
 }

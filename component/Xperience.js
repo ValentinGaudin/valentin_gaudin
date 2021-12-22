@@ -1,10 +1,10 @@
 const Xperience = () => {
 
     return (
-        <div className="about containerBoy top-24 mx-20 my-10 md:my-36">
+        <div className="about containerBoy top-24 my-10 md:my-36">
 
         <section id="littleName">
-            <div className="littleBoy md:text-5xl text-md w-full tracking-wider">
+            <div className="littleBoy md:text-5xl text-md tracking-wider">
                 <h1 className="text-purple">Hello There, I&apos;m <span></span></h1>
                 <h1><span></span></h1>
                 <h1>Valentin Gaudin<span></span></h1>
@@ -13,7 +13,7 @@ const Xperience = () => {
             </div> 
         </section>
 
-        <aside className="flex mt-8 md:text-3xl text-lg w-full ml-10">
+        <aside className="flex mt-8 md:text-3xl text-lg w-75 ml-10">
             <p>
                 Ex-soldier of an elite unit, rigorous, motivated and organized, in web developer training at the Wild Code School of Lyon
             </p>
@@ -31,7 +31,7 @@ const Xperience = () => {
                                     .Front-End()
                                 </div>
                                 <div>
-                                    <ul className="title md:text-xl text-sm md:ml-20 ml-12 w-full">
+                                    <ul className="title md:text-xl text-sm md:ml-20 ml-12 ">
                                         <li className="item"> <span></span>HTML 5</li>
                                         <li className="item"> <span></span>CSS / SCSS </li>
                                         <li className="item"> <span></span>Bootstrap & Tailwind</li>
@@ -46,7 +46,7 @@ const Xperience = () => {
                                     .Back-End()
                                 </div>
                                 <div>
-                                    <ul className="title md:text-xl text-sm md:ml-20 ml-12 w-full">
+                                    <ul className="title md:text-xl text-sm md:ml-20 ml-12">
                                         <li className="item"> <span></span>PHP</li>
                                         <li className="item"> <span></span>Symfony & Twig</li>
                                     </ul>
@@ -58,7 +58,7 @@ const Xperience = () => {
                             </div>
 
                             <div>
-                                <ul className="title md:text-xl text-sm md:ml-20 ml-12 w-full">
+                                <ul className="title md:text-xl text-sm md:ml-20 ml-12">
                                     <li className="item"> <span></span>MySQL </li>
                                 </ul>
                             </div>
@@ -70,7 +70,7 @@ const Xperience = () => {
                             </div>
 
                             <div>
-                                <ul className="title md:text-xl text-sm md:ml-20 ml-12 w-full">
+                                <ul className="title md:text-xl text-sm md:ml-20 ml-12">
                                     <li className="item"> <span></span>Figma</li>
                                     <li className="item"> <span></span>Adobe LightRoom</li>
                                 </ul>
@@ -83,7 +83,7 @@ const Xperience = () => {
                             </div>
 
                             <div>
-                                <ul className="title md:text-xl text-sm md:ml-20 ml-12 w-full">
+                                <ul className="title md:text-xl text-sm md:ml-20 ml-12 w-50">
                                     <li className="item"> <span></span>Git & GitHub</li>
                                     <li className="item"> <span></span>Composer</li>
                                     <li className="item"> <span></span>Npm & Yarn</li>

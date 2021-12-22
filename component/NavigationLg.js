@@ -10,13 +10,13 @@ const img7 = '/assets/img/bg7.jpg';
 const img8 = '/assets/img/bg8.jpg';
 
 
-const Navigation=() => {
+function Navigation () {
 
 
     const img = [img1, img2, img3, img5, img6, img7, img8];
     const randomize = Math.floor(Math.random()*img.length);
     
-    const StyleSheet ={
+    const StyleSheet = {
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center',
@@ -32,7 +32,7 @@ const Navigation=() => {
         
 
     <div className="home theGrid img rounded-2xl w-11/12 mx-auto hidden md:block z-10" style={ StyleSheet }>
-        <div className="text tracking-widest left-10 top-10 relative md:text-1xl lg:text-2xl mix-blend-color-dodge">
+        <div className="text tracking-widest ml-10 top-10 relative md:text-1xl lg:text-2xl mix-blend-color-dodge w-20">
 
             <p><strong>V</strong><span>alentin</span></p>
 
