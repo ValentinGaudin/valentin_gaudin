@@ -10,9 +10,6 @@ ogImage:
 ---
 ## Logbook entry 1
 --
-I am Valentin, a Junior Web Developer trained at the Wild Code School.
-Curious about everything, but above all passionate about audiovisual, IT and new technologies from a very young age, I decided to embark on development
-If I am a web developer today, know that it was not always the case, a former soldier in an elite unit I made the choice to change my life.
-I therefore carried out a skills assessment which confirmed my idea of ​​moving towards digital professions and more specifically web development. So I embarked on an intensive training as a web developer. 5 intense months which allowed me to acquire a solid foundation, to learn good practices and to understand good methodologies in order to be able to continue to progress.
+I am Valentin, a Junior Web Developer trained at Wild Code School. I’m curious about everything, but I’m passionate about audiovisual, IT and new technologies in particular since a very young age. If I am a web developer today, know that it was not always the case : being a former soldier from an elite unit, I made the choice to change my life. I therefore carried out a skills assessment which confirmed my idea of moving towards a digital profession and more specifically web development. That is why I have embarked on a rigorous training as a web developer. Five intense months allowed me to acquire strong basis on web development, to learn good practices and to understand good methodologies to continue to progress.
 --
 ## End of entry

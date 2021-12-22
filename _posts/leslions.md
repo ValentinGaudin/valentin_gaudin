@@ -10,24 +10,16 @@ ogImage:
   url: '/assets/work/leslions/cover.png'
 ---
 
-First educational project within the wild. After two weeks of studies on the basics of development, we had to train our first teams to be able to develop our first static application.
-With my team we decided to make a showcase site for the city of Lyon. Following a few guidelines:
-
-
+First educational project within Wild. After two weeks of studying the basics of development, we had to train our four-man team to develop our first static application. We decided to create a showcase site for the city of Lyon, following these few guidelines:
 
 1.Static website in HTML & CSS 
-2.Responsive design: Real reflection on display, not just element resizing.
-3.Visual consistency: The pages do not have different graphic styles.
-4.Correct presentation of the project with contextualization: "Why this site was developed"
-5.Collaborative teamwork and management of possible first human conflicts
-6.Basic use of Git / GitHub and early code conflicts.
+2.Responsive design: Real reflection on display, not just element resizing. 
+3.Visual consistency: The pages do not have different graphic style. 
+4.Correct presentation of the project with contextualization: "Why was this site developed" 
+5.Collaborative teamwork and management of possible first human conflicts 
+6.Basic use of Git / GitHub and early code conflicts. We are rather proud of the result. 
 
-
-
-We are rather proud of the result. Do not hesitate to see the repository link on GitHub.
-Develop with : 
--Matthieu Chabot
--Jean-Christophe Riotte
--Manuela Quertier
+Do not hesitate to see the repository link on GitHub. 
+Develop with : \-Matthieu Chabot \-Jean-Christophe Riotte \-Manuela Quertier
 
 
