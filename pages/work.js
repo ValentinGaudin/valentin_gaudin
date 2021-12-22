@@ -17,7 +17,7 @@ export default function Work({ allPosts }) {
     return (
         <div>
                 <Header/>
-                <Title info="Work"/>
+                <Title name="Work"/>
                 <Layout>
                 <Head>
                 </Head>

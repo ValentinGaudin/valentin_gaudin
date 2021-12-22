@@ -1,0 +1,16 @@
+.styleSheet{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: max-content;
+    min-height: 10%;
+    border-radius: 1rem;
+    margin: 0 10px;
+
+}
+@media (min-width: 768px) {
+    .styleSheet {
+        display: block;
+    }
+}

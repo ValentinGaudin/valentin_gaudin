@@ -10,7 +10,7 @@ const Social = () => {
                 <a href="https://github.com/ValentinGaudin" target="_blank" rel="noreferrer">
                     <div className="relative ml-10 mt-2 flex">
                         <Image src={Git} alt="Logo Github" width="40" height="40" className="social Git" />
-                        <p className="mt-2 ml-5">GitHub</p>
+                        <p id="github" className="mt-2 ml-5">GitHub</p>
                     </div>
                 </a>
             </figure>
@@ -18,7 +18,7 @@ const Social = () => {
                 <a href="https://www.linkedin.com/in/gaudinvalentin/" target="_blank" rel="noreferrer">
                     <div className="relative ml-10 mt-2 flex">
                         <Image src={Linkedin} alt="Logo Instagram" width="40" height="40" className="social Linkedin" />
-                        <p className="mt-2 ml-5">Linkedin</p>
+                        <p id="linkedin" className="mt-2 ml-5">Linkedin</p>
                     </div>
                 </a>
             </figure>
@@ -26,7 +26,7 @@ const Social = () => {
                 <a href="https://www.instagram.com/valentin_gdn_/" target="_blank" rel="noreferrer">
                     <div className="relative ml-10  mt-2 flex">
                         <Image src={Insta} alt="Logo Instagram" width="40" height="40" className="social Instagram" />
-                        <p className="mt-2 ml-5">Instagram</p>
+                        <p id="instagram" className="mt-2 ml-5">Instagram</p>
                     </div>
                 </a>
             </figure>

@@ -64,7 +64,7 @@ h4 span {
   filter: invert(97%) brightness(80%);
 }
 
-#littleName h1 {
+#name h1 {
   display: block;
   width: fit-content;
   position: relative;
@@ -72,7 +72,7 @@ h4 span {
   animation: none;
 }
 
-#littleName h1 span {
+#name h1 span {
   position: absolute;
   text-decoration: none;
   color: white;
@@ -130,7 +130,7 @@ ul li a {
 }
 
 nav {
-  position: relative;
+
   font-size: 2em;
 }
 
@@ -141,7 +141,6 @@ nav ul li a:hover {
 }
 
 nav ul li {
-  position: relative;
   font-size: xx-large;
   margin-top: 32px;
   margin: 20px;

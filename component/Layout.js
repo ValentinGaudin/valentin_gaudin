@@ -1,7 +1,7 @@
 import Meta from '../component/Meta'
 
 
-export default function Layout({children }) {
+export default function Layout({children}) {
     return (
         <>
         <Meta />

@@ -10,7 +10,7 @@ export default function Index() {
   return (
     <div>
       <Header />
-      <Title info="Home"/>
+      <Title name="Home"/>
       <Xperience />
       <Footer />
     </div>

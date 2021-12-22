@@ -1,9 +1,9 @@
 const Xperience = () => {
 
     return (
-        <div className="about containerBoy top-24 my-10 md:my-36">
+        <div className="about containerBoy top-24 my-10 md:my-36" id="Valentin">
 
-        <section id="littleName">
+        <section id="name">
             <div className="littleBoy md:text-5xl text-md tracking-wider">
                 <h1 className="text-purple">Hello There, I&apos;m <span></span></h1>
                 <h1><span></span></h1>
@@ -20,14 +20,14 @@ const Xperience = () => {
         </aside>
 
         <section className="mt-24 md:my-36">
-            <div className="experience ">
+            <div className="experience">
 
-                <h1 className="md:text-4xl text-2xl font-bold w-full">
+                <h1 className="md:text-4xl text-2xl font-bold w-full" id="skills">
                     .Skills()
                 </h1>
                         <div className="my-5 grid grid-cols-3 gap-4">
                             <div className="my-5 w-full">
-                                <div className="my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5 ">
+                                <div className="my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5" id="frontend">
                                     .Front-End()
                                 </div>
                                 <div>
@@ -42,7 +42,7 @@ const Xperience = () => {
                             </div>
                         
                             <div className="my-5">
-                                <div className=" my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5">
+                                <div className=" my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5" id="backend">
                                     .Back-End()
                                 </div>
                                 <div>
@@ -65,7 +65,7 @@ const Xperience = () => {
                         </div>
 
                         <div className=" my-5">
-                            <div className="my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5">
+                            <div className="my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5" id="design">
                                 .UI() & UX()
                             </div>
 
