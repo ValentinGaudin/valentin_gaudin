@@ -1,4 +1,4 @@
-import Meta from '../components/Meta'
+import Meta from '../component/Meta'
 
 
 export default function Layout({children }) {

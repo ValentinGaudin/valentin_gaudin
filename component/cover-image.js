@@ -28,9 +28,7 @@ export default function CoverImage({
             <Link as={`/work/${slug}`} href="/work/[slug]">
                 <a aria-label={title}>{image}</a>
             </Link>
-        ) : (
-            image
-        )}
+        ) : (image)}
         </div>
     )
 }

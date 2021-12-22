@@ -1,15 +1,15 @@
-import Footer from '../components/Footer';
-import Header from '../components/header';
-import Mail from '../components/Mail';
+import Footer from '../component/Footer';
+import Header from '../component/Header';
+import Mail from '../component/Mail';
+import Title from '../component/Title';
 
 
 const Contact = () => {
     
     return (
         <div>
-            <Header 
-            info="Contact"
-            />
+            <Header />
+            <Title info="Contact"/>
             <Mail />
             <Footer />
         </div>
