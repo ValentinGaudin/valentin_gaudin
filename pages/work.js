@@ -1,4 +1,4 @@
-import Footer from '../componentss/Footer';
+import Footer from '../components/Footer';
 import MoreStories from '../components/morePosts';
 import HeroPost from '../components/hero-post';
 import Layout from '../components/Layout';
