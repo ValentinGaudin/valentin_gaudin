@@ -1,37 +1,39 @@
 import React from 'react';
 import Link from 'next/link'
-import style from '../public/assets/styles/random.module.scss';
-import Image from 'next/image';
 
 function Navigation () {
 
-
-    function randomize(min, max) {
-        return Math.floor(Math.random() * (max - min) + min);
-    }
+    const img1 = '/assets/img/bg1.jpg';
+    const img2 = '/assets/img/bg2.jpg';
+    const img3 = '/assets/img/bg3.jpg';
+    const img5 = '/assets/img/bg5.jpg';
+    const img6 = '/assets/img/bg6.jpg';
+    const img7 = '/assets/img/bg7.jpg';
+    const img8 = '/assets/img/bg8.jpg';
+    const img = [img1, img2, img3, img5, img6, img7, img8];
+    const randomize = Math.floor(Math.random()*img.length);
     
+    const StyleSheet = {
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        backgroundImage: `url('${img[randomize]}')`,
+    };
+
     function preventRefresh(e) {
         e.preventDefault();
     }
-
+    
     return (
-        <>
-        <div  className="home theGrid img rounded-2xl mx-auto hidden md:block z-10 mt-5">
-            <div className='w-11/12 h-full mx-auto'>
-                <Image 
-                    className={style.styleSheet} 
-                    src={`/assets/img/bg`+`${randomize(1,6)}`+`.jpg`} 
-                    layout='responsive'
-                    objectFit='fill'
-                    objectPosition={'center'}
-                    height={'15w'}
-                    width={"100w"}
-                    alt="Background Image"
-                />
-            </div>
-            <div className="text tracking-widest left-20 top-20 md:text-1xl lg:text-2xl w-20 z-50 absolute mix-blend-overlay">
-                <p className=""><strong>V</strong><span>alentin</span></p>
-                <div className="nav relative left-40 ">
+    <>
+    <div className="home theGrid mt-10 img rounded-2xl w-11/12 h-4/12 mx-auto hidden md:block z-10" style={ StyleSheet }>
+        <div className="text tracking-widest top-8 ml-10 relative md:text-1xl lg:text-2xl mix-blend-color-dodge w-20">
+
+            <p><strong>V</strong><span>alentin</span></p>
+
+        </div> 
+                <div className="nav relative left-52 ">
                     <nav className="nav navigation relative left-0">
                         <ul className="flex flex-row justify-start w-full text-purple-dark" id="navBG">
                             <li>
@@ -58,7 +60,6 @@ function Navigation () {
                     </nav>
                 </div>
             </div>
-        </div> 
             {preventRefresh}
     </>
     );

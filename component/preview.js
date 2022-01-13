@@ -1,5 +1,5 @@
-import DateFormatter from './date-formatter';
-import CoverImage from './cover-image';
+import DateFormatter from './dateFormatter';
+import CoverImage from './coverImage';
 import Link from 'next/link';
 
 export default function PostPreview({
@@ -20,7 +20,7 @@ return (
                 width={566}
             />
         </div>
-        <h4 className="text-3xl mb-3 leading-snug title w-full">
+        <h4 className="text-2xl mb-3 leading-snug title w-11/12">
             
             <Link as={`/work/${slug}`} href="/work/[slug]">
                 <a className="hover:underline ">

@@ -1,10 +1,10 @@
 import Footer from '../component/Footer';
-import Container from '../component/container'
-import MoreStories from '../component/more-post'
-import HeroPost from '../component/hero-post'
-import Layout from '../component/Layout'
-import { getAllPosts } from '../lib/api'
-import Head from 'next/head'
+
+import MoreStories from '../component/morePosts';
+import HeroPost from '../component/hero-post';
+import Layout from '../component/Layout';
+import Container from '../component/container';
+import { getAllPosts } from '../lib/api';
 import Header from '../component/Header';
 import Title from '../component/Title';
 
@@ -16,11 +16,9 @@ export default function Work({ allPosts }) {
 
     return (
         <div>
-                <Header/>
+            <Header/>
                 <Title name="Work"/>
                 <Layout>
-                <Head>
-                </Head>
                     <Container>
                         {heroPost && (
                             <HeroPost
@@ -36,7 +34,6 @@ export default function Work({ allPosts }) {
                     </Container>
                 </Layout>
             <Footer />
-
         </div>
     );
 };

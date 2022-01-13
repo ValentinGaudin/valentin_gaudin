@@ -1,10 +1,10 @@
 const Xperience = () => {
 
     return (
-        <div className="about containerBoy top-24 my-10 md:my-36" id="Valentin">
+        <div className="about containerBoy top-24 my-10 md:my-36" id="valentin">
 
         <section id="name">
-            <div className="littleBoy md:text-5xl text-md tracking-wider">
+            <div className="littleBoy md:text-4xl text-md tracking-wider">
                 <h1 className="text-purple">Hello There, I&apos;m <span></span></h1>
                 <h1><span></span></h1>
                 <h1>Valentin Gaudin<span></span></h1>
@@ -13,7 +13,7 @@ const Xperience = () => {
             </div> 
         </section>
 
-        <aside className="flex mt-8 md:text-3xl text-lg w-75 ml-10">
+        <aside className="flex mt-8 md:text-2xl text-lg w-75 ml-10" id="description">
             <p>
                 Ex-soldier of an elite unit, rigorous, motivated and organized, in web developer training at the Wild Code School of Lyon
             </p>
@@ -21,7 +21,6 @@ const Xperience = () => {
 
         <section className="mt-24 md:my-36">
             <div className="experience">
-
                 <h1 className="md:text-4xl text-2xl font-bold w-full" id="skills">
                     .Skills()
                 </h1>
@@ -40,7 +39,7 @@ const Xperience = () => {
                                     </ul>
                                 </div>
                             </div>
-                        
+
                             <div className="my-5">
                                 <div className=" my-4 md:text-4xl text-xl md:ml-8 md:mt-10 ml-5" id="backend">
                                     .Back-End()
@@ -93,7 +92,6 @@ const Xperience = () => {
                     </div>
             </div>
         </section>
-
     </div>
     );
 };

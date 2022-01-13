@@ -1,5 +1,5 @@
-import DateFormatter from '../component/date-formatter'
-import CoverImage from '../component/cover-image'
+import DateFormatter from './dateFormatter'
+import CoverImage from './coverImage'
 import Link from 'next/link'
 
 export default function HeroPost({

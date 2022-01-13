@@ -4,14 +4,14 @@ import Header from '../component/Header';
 import Title from '../component/Title';
 import Xperience from '../component/Xperience';
 
-
 export default function Index() {
-  
   return (
     <div>
       <Header />
-      <Title name="Home"/>
-      <Xperience />
+        <body>
+          <Title name="Home"/>
+          <Xperience />
+        </body>
       <Footer />
     </div>
   )
