@@ -1,13 +1,11 @@
-import Footer from '../component/Footer';
-
-import MoreStories from '../component/morePosts';
-import HeroPost from '../component/hero-post';
-import Layout from '../component/Layout';
-import Container from '../component/container';
+import Footer from '../components/Footer';
+import MoreStories from '../components/morePosts';
+import HeroPost from '../components/hero-post';
+import Layout from '../components/Layout';
+import Container from '../components/container';
 import { getAllPosts } from '../lib/api';
-import Header from '../component/Header';
-import Title from '../component/Title';
-
+import Header from '../components/Header';
+import Title from '../components/Title';
 
 export default function Work({ allPosts }) {
 
