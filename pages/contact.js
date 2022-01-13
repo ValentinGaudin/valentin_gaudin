@@ -9,7 +9,7 @@ const Contact = () => {
     return (
         <div>
             <Header />
-            <Title info="Contact"/>
+            <Title name="Contact"/>
             <Mail />
             <Footer />
         </div>
