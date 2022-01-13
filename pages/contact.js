@@ -1,7 +1,7 @@
-import Footer from '../component/Footer';
-import Header from '../component/Header';
-import Mail from '../component/Mail';
-import Title from '../component/Title';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import Mail from '../components/Mail';
+import Title from '../components/Title';
 
 
 const Contact = () => {
