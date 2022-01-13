@@ -1,7 +1,6 @@
-
 nav{
-    position: relative;
     font-size: 2em;
+    position: relative;
 }
 nav ul li a:hover{
     color: $header-link-hover;
@@ -9,12 +8,10 @@ nav ul li a:hover{
     transition: transform 2s ease-in;
 }
 nav ul li{
-    position: relative;
     font-size: xx-large;
-    margin-top: 32px;
+    position: relative;
     margin: 20px;
         a{
-        color: $header-link-active;
             &::after{
                 content: "";
                 width: 0;

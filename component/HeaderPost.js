@@ -1,6 +1,6 @@
-import PostTitle from './post-title'
-import CoverImage from './cover-image'
-import DateFormatter from './date-formatter'
+import PostTitle from './postTitle'
+import CoverImage from './coverImage'
+import DateFormatter from './dateFormatter'
 
 export default function PostHeader({
   title,

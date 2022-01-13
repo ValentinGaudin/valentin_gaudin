@@ -1,8 +1,7 @@
-
 const AllRight = () => {
     return (
         <div>
-            <p>©2021 Tous droits réservés</p>
+            <p>©2022 Tous droits réservés</p>
         </div>
     );
 };

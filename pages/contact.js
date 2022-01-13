@@ -9,8 +9,10 @@ const Contact = () => {
     return (
         <div>
             <Header />
-            <Title info="Contact"/>
-            <Mail />
+                <body>
+                    <Title name="Contact"/>
+                    <Mail />
+                </body>
             <Footer />
         </div>
     );

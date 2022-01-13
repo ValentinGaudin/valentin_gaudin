@@ -21,6 +21,15 @@ $blue: #03fce8;
   box-sizing: border-box;
   font-family: 'Dosis', sans-serif;
 }
+.styleSheet{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: 50;
+  border-radius: 1rem;
+  margin: 0 auto;
+}
 a {
   text-decoration: none;
 }
@@ -77,7 +86,6 @@ h4 span{
 @import "./_navigation.scss";
 @import "./_navBar.scss";
 @import "./_footer.scss";
-@import "./_404.scss";
 @import "./_work.scss";
 @import "./_markdown.scss";
 @import "./_form.scss";

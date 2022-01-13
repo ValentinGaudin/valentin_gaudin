@@ -1,11 +1,11 @@
-#littleName h1{
+#name h1{
     display: block;
     width: fit-content;
     position: relative;
     color: var($primary);
     animation: none;
 }
-#littleName h1 span{
+#name h1 span{
     position: absolute;
     text-decoration: none;
     color: white;
@@ -26,8 +26,6 @@
         color: $purple;
     }
 }
-
-
 @keyframes block {
     50%{
         width: 100%;
