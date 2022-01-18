@@ -9,8 +9,7 @@ function Navigation () {
     const img5 = '/assets/img/bg5.jpg';
     const img6 = '/assets/img/bg6.jpg';
     const img7 = '/assets/img/bg7.jpg';
-    const img8 = '/assets/img/bg8.jpg';
-    const img = [img1, img2, img3, img5, img6, img7, img8];
+    const img = [img1, img2, img3, img5, img6, img7];
     const randomize = Math.floor(Math.random()*img.length);
     
     const StyleSheet = {
@@ -21,9 +20,6 @@ function Navigation () {
         backgroundImage: `url('${img[randomize]}')`,
     };
 
-    function preventRefresh(e) {
-        e.preventDefault();
-    }
     
     return (
     <>
@@ -60,7 +56,6 @@ function Navigation () {
                     </nav>
                 </div>
             </div>
-            {preventRefresh}
     </>
     );
 };
