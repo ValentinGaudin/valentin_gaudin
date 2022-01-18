@@ -25,7 +25,6 @@ const MobileNav = () => {
                                 type='button'
                                 onClick={toggleMenu}
                             >
-                                
                             <span className='hamburger_top-bun'></span>
                             <span className='hamburger_middle-bun'></span>
                             <span className='hamburger_bottom-bun'></span>

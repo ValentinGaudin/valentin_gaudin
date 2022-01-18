@@ -5,14 +5,17 @@ import Title from '../components/Title';
 import Xperience from '../components/Xperience';
 
 export default function Index() {
+
+
+
   return (
-    <div>
+      <>
       <Header />
         <body>
           <Title name="Home"/>
           <Xperience />
         </body>
       <Footer />
-    </div>
+      </>
   )
 }
