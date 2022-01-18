@@ -4,9 +4,8 @@ const Xperience = () => {
         <div className="about containerBoy top-24 my-10 md:my-36" id="valentin">
 
         <section id="name">
-            <div className="littleBoy md:text-4xl text-md tracking-wider">
+            <div className="littleBoy md:text-4xl text-md tracking-wider ml-20">
                 <h1 className="text-purple">Hello There, I&apos;m <span></span></h1>
-                <h1>Valentin Gaudin<span></span></h1>
                 <h1>Valentin Gaudin<span></span></h1>
                 <h1>A Jr. web <span></span></h1>
             </div> 
