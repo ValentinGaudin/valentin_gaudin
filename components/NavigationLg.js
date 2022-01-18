@@ -9,7 +9,9 @@ function Navigation () {
     const img5 = '/assets/img/bg5.jpg';
     const img6 = '/assets/img/bg6.jpg';
     const img7 = '/assets/img/bg7.jpg';
+
     const img = [img1, img2, img3, img5, img6, img7];
+
     const randomize = Math.floor(Math.random()*img.length);
     
     const StyleSheet = {
@@ -19,7 +21,6 @@ function Navigation () {
         backgroundAttachment: 'fixed',
         backgroundImage: `url('${img[randomize]}')`,
     };
-
     
     return (
     <>

@@ -7,6 +7,7 @@ const Xperience = () => {
             <div className="littleBoy md:text-4xl text-md tracking-wider">
                 <h1 className="text-purple">Hello There, I&apos;m <span></span></h1>
                 <h1>Valentin Gaudin<span></span></h1>
+                <h1>Valentin Gaudin<span></span></h1>
                 <h1>A Jr. web <span></span></h1>
             </div> 
         </section>
