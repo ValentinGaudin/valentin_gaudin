@@ -10,7 +10,6 @@ class MyDocument extends Document {
 render() {
     return (
     <Html lang="en">
-        <Header />
         {/* Global Site Tag (gtag.js) - Google Analytics */}
         <script
             async
