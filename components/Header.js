@@ -6,7 +6,6 @@ export default function Header(){
     return (
         <div>
             <Meta />
-            <Head />
             <Navigation />
                 <p className="md:hidden p-5 my-5">
                     Valentin Gaudin
