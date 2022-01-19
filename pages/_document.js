@@ -26,14 +26,13 @@ render() {
                 `,
             }}
         />
-        <body>
         <Head />
+        <body>
             <Main />
             <NextScript />
         </body>
     </Html>
-    )
-}
+    )}
 }
 
 export default MyDocument
