@@ -1,7 +1,6 @@
 import Meta from './Meta';
 import Navigation from './Nav';
-import Head from 'next/head'
-
+$
 export default function Header(){
     return (
         <div>

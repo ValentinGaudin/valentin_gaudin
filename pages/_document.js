@@ -26,7 +26,6 @@ render() {
                 `,
             }}
         />
-        <Head />
         <body>
             <Main />
             <NextScript />

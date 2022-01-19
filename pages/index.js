@@ -11,10 +11,8 @@ export default function Index() {
   return (
       <>
       <Header />
-        
           <Title name="Home"/>
           <Xperience />
-        
       <Footer />
       </>
   )
