@@ -22,13 +22,13 @@ export default function Meta() {
                 href="/..//favicons/favicon-16x16.png"
             />
             <link
-                rel="android-chrome"
+                rel="icon"
                 type="image/png"
                 sizes="192x192"
                 href="/..//favicons/android-chrome-192x192.png"
             />
             <link
-                rel="android-chrome"
+                rel="icon"
                 type="image/png"
                 sizes="512x512"
                 href="/..//favicons/android-chrome-512x512.png"
@@ -42,6 +42,7 @@ export default function Meta() {
             <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
             <meta name="description" content={DESCRIPTION} />
+            <meta name="copyright" content="Titulaire des droits"/>
             <title>{NAME}</title>
         </Head >
     )
