@@ -1,5 +1,4 @@
-import Document, { Html, Main, NextScript } from 'next/document'
-import Meta from '../components/Meta'
+import Document, { Head, Html, Main, NextScript } from 'next/document'
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -10,7 +9,7 @@ class MyDocument extends Document {
 render() {
     return (
     <Html lang="en">
-        <Meta/>
+        <Head />
         {/* Global Site Tag (gtag.js) - Google Analytics */}
         <script
             async
