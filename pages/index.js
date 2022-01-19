@@ -11,10 +11,10 @@ export default function Index() {
   return (
       <>
       <Header />
-        <body>
+        
           <Title name="Home"/>
           <Xperience />
-        </body>
+        
       <Footer />
       </>
   )
