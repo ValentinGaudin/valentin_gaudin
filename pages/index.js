@@ -10,7 +10,7 @@ export default function Index() {
 
   return (
       <>
-      <Header />
+      <Header title ="- Home"/>
           <Title name="Home"/>
           <Xperience />
       <Footer />

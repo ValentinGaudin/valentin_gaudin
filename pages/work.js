@@ -14,7 +14,7 @@ export default function Work({ allPosts }) {
 
     return (
         <div>
-            <Header/>
+            <Header title ="- Work"/>
                 <Title name="Work"/>
                 <Layout>
                     <Container>
