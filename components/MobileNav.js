@@ -49,7 +49,7 @@ export default function MobileNav()  {
                             </Link>
                         </li>
                         <li className="navbar__link">
-                            <a href="/CV/CV_Valentin_Gaudin.pdf" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
+                            <a href="/CV/C.V_Mr_Gaudin_Valentin.pdf" target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>
                                 .Cv()
                             </a>
                         </li>

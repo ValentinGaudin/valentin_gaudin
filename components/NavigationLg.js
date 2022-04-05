@@ -49,7 +49,7 @@ export default function Navigation() {
                                 </Link>
                             </li>
                             <li>
-                                <a href="/CV/CV_Valentin_Gaudin.pdf" target="_blank" rel="noopener noreferrer">
+                                <a href="/CV/C.V_Mr_Gaudin_Valentin.pdf" target="_blank" rel="noopener noreferrer">
                                     .Cv()
                                 </a>
                             </li>
