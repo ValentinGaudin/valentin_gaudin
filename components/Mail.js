@@ -20,8 +20,8 @@ const Mail = () => {
             title: 'Your message has been sent',
             showConfirmButton: false,
             timer: 1500
-            });
-    
+        });
+
         emailjs
             .sendForm(
                 "service_qep2e6i",
@@ -31,69 +31,69 @@ const Mail = () => {
             )
             .then(
                 (result) => {
-                console.log(result.text);
-                setEmail(""), setMessage("");
+                    console.log(result.text);
+                    setEmail(""), setMessage("");
                 },
                 (error) => {
-                console.log(error.text);
+                    console.log(error.text);
                 }
             )
-        
-            e.target.reset();
-        }
-        
+
+        e.target.reset();
+    }
+
 
     return (
         <div>
             <form className="flex flex-col justify-items-center items-center" ref={form} onSubmit={sendmail}>
                 <div className="form">
                     <div className=" flex justify-items-center items-center">
-                    <FormControl className="p-4 other">
+                        <FormControl className="p-4 other">
                             <InputLabel className="mt-2 " htmlFor="my-input">Name</InputLabel>
-                                <Input required
-                                    id="my-input"
-                                    aria-describedby="my-helper-text"
-                                    value={name}
-                                    onChange={(e) => { e.preventDefault(); setName(e.target.value);}}
-                                    name="name"
-                                />
+                            <Input required
+                                id="my-input"
+                                aria-describedby="my-helper-text"
+                                value={name}
+                                onChange={(e) => { e.preventDefault(); setName(e.target.value); }}
+                                name="name"
+                            />
                         </FormControl>
                     </div>
                     <div className="mt-5 mx-auto flex w-full">
                         <FormControl className="m-2 p-4 other flex mx-auto">
                             <InputLabel className="mt-2" htmlFor="my-input">Email :</InputLabel>
-                                <Input required
-                                    id="my-input"
-                                    aria-describedby="my-helper-text"
-                                    value={email}
-                                    onChange={(e) => { e.preventDefault(); setEmail(e.target.value);}}
-                                    name="email"
-                                />
+                            <Input required
+                                id="my-input"
+                                aria-describedby="my-helper-text"
+                                value={email}
+                                onChange={(e) => { e.preventDefault(); setEmail(e.target.value); }}
+                                name="email"
+                            />
                             <FormHelperText className="mb-2" id="my-helper-text">
-                            Not share your mail.
+                                Not share your mail.
                             </FormHelperText>
                         </FormControl>
                     </div>
                     <div className="mt-5 mx-auto flex w-full" >
-                    <FormControl className="m-2 p-4 message flex mx-auto">
+                        <FormControl className="m-2 p-4 message flex mx-auto">
                             <InputLabel className="mt-2" htmlFor="my-input">Message :</InputLabel>
-                                <Input required
-                                    id="my-input"
-                                    color="primary"
-                                    aria-describedby="my-helper-text"
-                                    value={message}
-                                    onChange={(e) => { e.preventDefault(); setMessage(e.target.value);}}
-                                    name="message"
-                                />
-                    </FormControl>
-                        </div>
-                        
-                            <input 
-                                className="mt-4 mb-4 button flex mx-auto"
-                                value="Envoyer"
-                                type="submit"
+                            <Input required
+                                id="my-input"
+                                color="primary"
+                                aria-describedby="my-helper-text"
+                                value={message}
+                                onChange={(e) => { e.preventDefault(); setMessage(e.target.value); }}
+                                name="message"
                             />
+                        </FormControl>
                     </div>
+
+                    <input
+                        className="mt-4 mb-4 button flex mx-auto"
+                        value="Envoyer"
+                        type="submit"
+                    />
+                </div>
             </form>
         </div>
     );

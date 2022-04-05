@@ -12,6 +12,6 @@ export default function Footer() {
                     <AllRight />
                 </div>
             </footer>
-            </div>
+        </div>
     );
 };

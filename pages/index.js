@@ -5,9 +5,6 @@ import Title from '../components/Title';
 import Xperience from '../components/Xperience';
 
 export default function Index() {
-
-
-
   return (
       <>
       <Header title ="- Home"/>

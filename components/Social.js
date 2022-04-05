@@ -3,7 +3,7 @@ const Insta = '/assets/icon/instagram.svg';
 const Git = '/assets/icon/github.svg';
 const Linkedin = '/assets/icon/linkedin.svg';
 
-const Social = () => {
+export default function Social() {
     return (
         <div className="my-10 text-sm md:text-xl">
             <figure>
@@ -32,5 +32,4 @@ const Social = () => {
             </figure>
         </div>
     );
-}
-export default Social;
+};

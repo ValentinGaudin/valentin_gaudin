@@ -36,5 +36,5 @@ return (
         <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
         <p className="text-lg leading-relaxed mb-4">Valentin Gaudin</p>
     </div>
-    )
-}
+    );
+};

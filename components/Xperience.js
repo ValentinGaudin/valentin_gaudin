@@ -1,4 +1,4 @@
-const Xperience = () => {
+export default function Xperience () {
 
     return (
         <div className="about containerBoy top-24 my-10 md:my-36" id="valentin">
@@ -7,13 +7,13 @@ const Xperience = () => {
             <div className="littleBoy md:text-4xl text-md tracking-wider ml-20">
                 <h1 className="text-purple">Hello There, I&apos;m <span></span></h1>
                 <h1>Valentin Gaudin<span></span></h1>
-                <h1>A Jr. web <span></span></h1>
+                <h1>A Jr. web developper <span></span></h1>
             </div> 
         </section>
 
         <aside className="flex mt-8 md:text-2xl text-lg w-75 ml-10" id="description">
             <p>
-                Ex-soldier of an elite unit, rigorous, motivated and organized, in web developer training at the Wild Code School of Lyon
+                Ex-soldier of an elite unit, rigorous, motivated and organized, working as a web developer.
             </p>
         </aside>
 
@@ -93,5 +93,3 @@ const Xperience = () => {
     </div>
     );
 };
-
-export default Xperience;

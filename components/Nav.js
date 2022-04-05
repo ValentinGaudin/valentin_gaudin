@@ -1,7 +1,7 @@
 import MobileNav from "./MobileNav";
 import Navigation from "./NavigationLg";
 
-const Nav = () => {
+export default function Nav() {
     return (
         <div>
         <MobileNav />
@@ -9,5 +9,3 @@ const Nav = () => {
         </div>
     );
 };
-
-export default Nav;

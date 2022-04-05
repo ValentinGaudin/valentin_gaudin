@@ -21,5 +21,3 @@ First educational project within Wild. After two weeks of studying the basics of
 
 Do not hesitate to see the repository link on GitHub. 
 Develop with : \-Matthieu Chabot \-Jean-Christophe Riotte \-Manuela Quertier
-
-

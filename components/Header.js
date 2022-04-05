@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Meta from './Meta';
 import Navigation from './Nav';
 
-export default function Header( meta ){
+export default function Header(meta) {
     return (
         <div>
             <Head>
@@ -10,9 +10,9 @@ export default function Header( meta ){
             </Head>
             <Meta />
             <Navigation />
-                <p className="md:hidden p-5 my-5">
-                    Valentin Gaudin
-                </p>
+            <p className="md:hidden p-5 my-5">
+                Valentin Gaudin
+            </p>
         </div>
-    )
-}
+    );
+};
