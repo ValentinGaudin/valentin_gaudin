@@ -1,0 +1,143 @@
+---
+import NavIcon from '~/components/atoms/NavIcon.astro';
+import SocialIcon from '~/components/atoms/SocialIcon.astro';
+import type { NavigationContent } from '~/content/types';
+
+interface Props {
+  content: NavigationContent;
+}
+
+const { content } = Astro.props;
+---
+
+<nav aria-label={content.ariaLabel} data-navigation-dock>
+  {content.items.map((item) => (
+    <a
+      href={`#${item.sectionId}`}
+      title={item.title}
+      class="dock-link"
+      data-dock-target={item.sectionId}
+    >
+      <NavIcon name={item.icon} />
+      <span class="label">{item.label}</span>
+    </a>
+  ))}
+
+  <span class="separator" aria-hidden="true"></span>
+
+  {content.socialLinks.map((link) => (
+    <a
+      href={link.href}
+      target="_blank"
+      rel="noreferrer"
+      title={link.label}
+      class="social-link"
+    >
+      <SocialIcon name={link.icon} />
+      <span class="visually-hidden">{link.label}</span>
+    </a>
+  ))}
+</nav>
+
+<style>
+  nav {
+    position: fixed;
+    left: 50%;
+    bottom: max(18px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 12px;
+    border-radius: 999px;
+    background: var(--dock);
+    backdrop-filter: blur(14px);
+    border: 1px solid var(--ink-a12);
+    box-shadow: 0 12px 34px var(--ink-a16);
+    max-width: calc(100vw - 24px);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dock-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    flex: none;
+    width: 52px;
+    height: 50px;
+    border-radius: 999px;
+    background-color: transparent;
+    color: var(--ink-a6);
+    transition:
+      transform .3s cubic-bezier(.34, 1.5, .64, 1),
+      background-color .25s,
+      color .25s;
+    touch-action: manipulation;
+  }
+
+  .dock-link[data-active='true'] {
+    background-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .dock-link:active {
+    transform: scale(.88);
+  }
+
+  .label {
+    font-size: 8.5px;
+    letter-spacing: .06em;
+  }
+
+  .separator {
+    width: 1px;
+    height: 30px;
+    background: var(--ink-a16);
+    margin: 0 4px;
+    flex: none;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 46px;
+    height: 46px;
+    border-radius: 999px;
+    color: var(--ink-a6);
+    transition:
+      color .2s,
+      background .2s,
+      transform .3s cubic-bezier(.34, 1.5, .64, 1);
+    touch-action: manipulation;
+  }
+
+  .social-link:hover {
+    color: var(--ink);
+    background: var(--ink-a07);
+  }
+
+  .social-link:active {
+    transform: scale(.88);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+</style>

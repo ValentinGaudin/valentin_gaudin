@@ -1,0 +1,60 @@
+---
+import type { HeaderContent } from '~/content/types';
+
+interface Props {
+  content: HeaderContent;
+}
+
+const { content } = Astro.props;
+const { languages } = content;
+---
+
+<header>
+  <a href={content.wordmarkHref} class="wordmark">{content.wordmark}</a>
+  <div class="languages">
+    <span class="active" aria-current="true">{languages.activeLabel}</span>
+    {languages.alternateHref === null ? (
+      <span class="inactive" aria-disabled="true">{languages.alternateLabel}</span>
+    ) : (
+      <a href={languages.alternateHref}>{languages.alternateLabel}</a>
+    )}
+  </div>
+</header>
+
+<style>
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px var(--gutter);
+    font-size: 12px;
+    letter-spacing: .08em;
+  }
+
+  @media (max-width: 760px) {
+    header {
+      padding: 14px 20px;
+    }
+  }
+
+  .wordmark {
+    font-weight: 700;
+  }
+
+  .languages {
+    display: flex;
+    gap: 10px;
+    color: var(--ink-a4);
+  }
+
+  .active {
+    color: var(--ink);
+    font-weight: 700;
+  }
+
+  .inactive {
+    color: var(--ink-a4);
+    cursor: default;
+  }
+</style>

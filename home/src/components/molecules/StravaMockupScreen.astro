@@ -1,0 +1,126 @@
+---
+import MockupStatusBar from './MockupStatusBar.astro';
+import type { StravaMockupContent } from '~/content/types';
+
+interface Props {
+  content: StravaMockupContent;
+}
+
+const { content } = Astro.props;
+
+const elevationPolyline =
+  '18,104 34,74 46,86 62,42 78,58 92,26 108,50 124,34 140,66 154,52 168,88 182,70';
+---
+
+<MockupStatusBar time={content.statusTime} tone="sombre" />
+
+<div class="app-bar">
+  <span class="app-name">{content.appName}</span>
+  <span class="source-tag">{content.sourceTag}</span>
+</div>
+
+<div class="card">
+  <svg viewBox="0 0 200 130" width="100%" aria-hidden="true">
+    <polyline points={elevationPolyline} />
+  </svg>
+  <div class="stats">
+    {content.stats.map((stat) => (
+      <div class="stat">
+        <span class="stat-label">{stat.label}</span>
+        <span class="stat-value">{stat.value}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<div class="action-zone">
+  <div class="action">{content.actionLabel}</div>
+</div>
+
+<style>
+  .app-bar {
+    padding: 20px 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .app-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    color: #F0EBE3;
+  }
+
+  .source-tag {
+    font-size: 9.5px;
+    letter-spacing: .08em;
+    color: rgba(240, 235, 227, .45);
+  }
+
+  .card {
+    margin: 16px 16px 0;
+    border-radius: 14px;
+    background: var(--bezel);
+    border: 1px solid rgba(240, 235, 227, .1);
+    padding: 16px 14px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  svg {
+    display: block;
+    flex: 1;
+  }
+
+  polyline {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .stat-label {
+    font-size: 8px;
+    letter-spacing: .1em;
+    color: rgba(240, 235, 227, .45);
+  }
+
+  .stat-value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+    color: #F0EBE3;
+  }
+
+  .action-zone {
+    padding: 14px 16px 20px;
+  }
+
+  .action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    border-radius: 99px;
+    background: var(--accent);
+    color: var(--paper);
+    font-size: 10.5px;
+    letter-spacing: .1em;
+  }
+</style>

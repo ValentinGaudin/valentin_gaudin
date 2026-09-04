@@ -1,0 +1,26 @@
+# Strava Visuel — stravavisuel.valentingaudin.com
+#
+#   docker compose up -d
+#
+# Une seule brique : web-static. Le generateur lit le GPX, dessine et exporte
+# entierement dans le navigateur — aucun secret, aucun etat serveur, donc ni
+# API ni Redis.
+#
+# L'app native ne fait pas partie de cette pile : EAS Build la publie sur les
+# stores. Elle n'exige de l'infrastructure qu'un domaine stable en HTTPS.
+# Le fichier de configuration s'appelle .env.deploiement et non .env : Expo CLI
+# lit automatiquement tout `.env` du dossier de son projet, et REFUSE de
+# demarrer s'il y trouve une variable qu'il juge dangereuse — dont `ENV`, que
+# l'archetype utilise justement pour choisir containers/<ENV>/. Separer les
+# deux fichiers evite le conflit, et garde la configuration de deploiement
+# hors du champ de vision des outils de construction du front.
+#
+#   docker compose --env-file .env.deploiement <commande>
+#
+# Le Makefile pose deja cette option.
+include:
+  - path:
+      - containers/web.yml
+      - containers/${ENV}/web.yml
+    env_file:
+      - .env.deploiement

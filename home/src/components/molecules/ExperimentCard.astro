@@ -1,0 +1,118 @@
+---
+import PhoneFrame from './PhoneFrame.astro';
+import StravaMockupScreen from './StravaMockupScreen.astro';
+import EmptyCardsScreen from './EmptyCardsScreen.astro';
+import EmptyListScreen from './EmptyListScreen.astro';
+import type {
+  Experiment,
+  PlaceholderMockupContent,
+  StravaMockupContent,
+} from '~/content/types';
+
+interface Props {
+  experiment: Experiment;
+  stravaMockup: StravaMockupContent;
+  placeholderMockup: PlaceholderMockupContent;
+}
+
+const { experiment, stravaMockup, placeholderMockup } = Astro.props;
+
+const screenTone = experiment.mockup === 'generateur-strava' ? 'sombre' : 'papier';
+---
+
+<article class="experiment">
+  <PhoneFrame screenTone={screenTone}>
+    {experiment.mockup === 'generateur-strava' && (
+      <StravaMockupScreen content={stravaMockup} />
+    )}
+    {experiment.mockup === 'cartes-vides' && (
+      <EmptyCardsScreen content={placeholderMockup} />
+    )}
+    {experiment.mockup === 'liste-vide' && (
+      <EmptyListScreen content={placeholderMockup} />
+    )}
+  </PhoneFrame>
+
+  <div class="caption">
+    <div class="caption-head">
+      <span class:list={['number', { muted: experiment.isPlaceholder }]}>
+        {experiment.number}
+      </span>
+      <h3 class:list={['title', { muted: experiment.isPlaceholder }]}>
+        {experiment.title}
+      </h3>
+    </div>
+    <p class="description">{experiment.description}</p>
+    <span class:list={['status', { muted: experiment.isPlaceholder }]}>
+      {experiment.status}
+    </span>
+  </div>
+</article>
+
+<style>
+  .experiment {
+    perspective: 1500px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    flex: none;
+    width: min(288px, 76vw);
+    scroll-snap-align: center;
+  }
+
+  .caption {
+    width: 100%;
+    max-width: 288px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .caption-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .number {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .number.muted {
+    color: var(--ink-a3);
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: .02em;
+    margin: 0;
+    color: var(--ink);
+  }
+
+  .title.muted {
+    color: var(--ink-a55);
+  }
+
+  .description {
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--ink-a62);
+  }
+
+  .status {
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: var(--ink-a45);
+  }
+
+  .status.muted {
+    color: var(--ink-a35);
+  }
+</style>

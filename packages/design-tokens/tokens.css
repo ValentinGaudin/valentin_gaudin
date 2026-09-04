@@ -1,0 +1,72 @@
+:root {
+  color-scheme: light dark;
+
+  --paper: #F1ECE4;
+  --paper-2: #EAE4DA;
+  --ink: #111111;
+  --bezel: #191919;
+  --dock: rgba(241, 236, 228, .82);
+  --accent: #E8442A;
+
+  --ink-a055: rgba(17, 17, 17, .055);
+  --ink-a07: rgba(17, 17, 17, .07);
+  --ink-a09: rgba(17, 17, 17, .09);
+  --ink-a1: rgba(17, 17, 17, .1);
+  --ink-a12: rgba(17, 17, 17, .12);
+  --ink-a14: rgba(17, 17, 17, .14);
+  --ink-a16: rgba(17, 17, 17, .16);
+  --ink-a18: rgba(17, 17, 17, .18);
+  --ink-a2: rgba(17, 17, 17, .2);
+  --ink-a28: rgba(17, 17, 17, .28);
+  --ink-a3: rgba(17, 17, 17, .3);
+  --ink-a32: rgba(17, 17, 17, .32);
+  --ink-a35: rgba(17, 17, 17, .35);
+  --ink-a4: rgba(17, 17, 17, .4);
+  --ink-a42: rgba(17, 17, 17, .42);
+  --ink-a45: rgba(17, 17, 17, .45);
+  --ink-a5: rgba(17, 17, 17, .5);
+  --ink-a55: rgba(17, 17, 17, .55);
+  --ink-a6: rgba(17, 17, 17, .6);
+  --ink-a62: rgba(17, 17, 17, .62);
+  --ink-a72: rgba(17, 17, 17, .72);
+  --ink-a75: rgba(17, 17, 17, .75);
+
+  --font-display: 'Bodoni Moda', serif;
+  --font-body: 'Space Mono', ui-monospace, monospace;
+
+  --gutter: clamp(20px, 5vw, 88px);
+  --section-padding-block: clamp(64px, 8vw, 96px) clamp(72px, 8vw, 104px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #12120F;
+    --paper-2: #1B1B18;
+    --ink: #F0EBE3;
+    --bezel: #2B2B26;
+    --dock: rgba(26, 26, 23, .84);
+
+    --ink-a055: rgba(240, 235, 227, .082);
+    --ink-a07: rgba(240, 235, 227, .098);
+    --ink-a09: rgba(240, 235, 227, .121);
+    --ink-a1: rgba(240, 235, 227, .132);
+    --ink-a12: rgba(240, 235, 227, .154);
+    --ink-a14: rgba(240, 235, 227, .177);
+    --ink-a16: rgba(240, 235, 227, .199);
+    --ink-a18: rgba(240, 235, 227, .222);
+    --ink-a2: rgba(240, 235, 227, .244);
+    --ink-a28: rgba(240, 235, 227, .334);
+    --ink-a3: rgba(240, 235, 227, .356);
+    --ink-a32: rgba(240, 235, 227, .378);
+    --ink-a35: rgba(240, 235, 227, .412);
+    --ink-a4: rgba(240, 235, 227, .468);
+    --ink-a42: rgba(240, 235, 227, .49);
+    --ink-a45: rgba(240, 235, 227, .524);
+    --ink-a5: rgba(240, 235, 227, .58);
+    --ink-a55: rgba(240, 235, 227, .636);
+    --ink-a6: rgba(240, 235, 227, .692);
+    --ink-a62: rgba(240, 235, 227, .714);
+    --ink-a72: rgba(240, 235, 227, .826);
+    --ink-a75: rgba(240, 235, 227, .86);
+  }
+}

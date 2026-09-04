@@ -1,0 +1,11 @@
+# Strava Visuel — surcharge PRODUCTION.
+#
+# Aucun `build:` : le serveur ne compile jamais.
+# Les listes de labels FUSIONNENT avec celles du fragment commun.
+services:
+  web:
+    image: ${REGISTRY_ADDRESS}${COMPOSE_PROJECT_NAME}-web:${IMAGE_TAG:-main}
+    restart: unless-stopped
+    labels:
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.entrypoints=websecure
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.tls.certresolver=httpsresolver

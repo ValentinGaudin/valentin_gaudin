@@ -1,0 +1,64 @@
+@import '@portfolio/design-tokens/tokens.css';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+[data-rail] {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+[data-rail]::-webkit-scrollbar {
+  display: none;
+}
+
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: var(--tracking-eyebrow, .14em);
+  color: var(--ink-a55);
+}
+
+.serif {
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

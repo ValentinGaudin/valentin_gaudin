@@ -1,0 +1,110 @@
+---
+import SectionNumber from '~/components/atoms/SectionNumber.astro';
+import type { ContactContent } from '~/content/types';
+
+interface Props {
+  content: ContactContent;
+}
+
+const { content } = Astro.props;
+---
+
+<footer id={content.sectionId}>
+  <div class="heading">
+    <SectionNumber value={content.sectionNumber} />
+    <h2>{content.title}</h2>
+  </div>
+
+  <p class="intro">{content.intro}</p>
+
+  <a href={`mailto:${content.emailAddress}`} class="email">
+    {content.emailAddress}
+  </a>
+
+  <div class="links">
+    {content.links.map((link) => (
+      <a
+        href={link.href}
+        {...link.opensInNewTab ? { target: '_blank', rel: 'noreferrer' } : {}}
+      >
+        {link.label}
+      </a>
+    ))}
+    <span class="signature">{content.signature}</span>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background: #100F0D;
+    color: #F0EBE3;
+    border-top: 1px solid rgba(240, 235, 227, .12);
+    padding: clamp(72px, 9vw, 104px) var(--gutter) 132px;
+  }
+
+  .heading {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+    margin-bottom: 34px;
+    color: rgba(240, 235, 227, .45);
+  }
+
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(38px, 5vw, 72px);
+    margin: 0;
+    line-height: 1;
+    color: #F0EBE3;
+  }
+
+  .intro {
+    max-width: 520px;
+    margin: 0 0 48px;
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(240, 235, 227, .65);
+  }
+
+  .email {
+    display: inline-block;
+    word-break: break-word;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(22px, 3.4vw, 46px);
+    color: #F0EBE3;
+    border-bottom: 1px solid rgba(240, 235, 227, .35);
+    padding-bottom: 8px;
+    transition: color .2s, border-color .2s;
+  }
+
+  .email:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 40px;
+    margin: clamp(48px, 7vw, 72px) 0 0;
+    padding-top: 26px;
+    border-top: 1px solid rgba(240, 235, 227, .16);
+    font-size: 13px;
+  }
+
+  .links a {
+    color: rgba(240, 235, 227, .75);
+  }
+
+  .links a:hover {
+    color: var(--accent);
+  }
+
+  .signature {
+    margin-left: auto;
+    color: rgba(240, 235, 227, .4);
+    letter-spacing: .1em;
+  }
+</style>

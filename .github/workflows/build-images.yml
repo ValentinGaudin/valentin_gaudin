@@ -1,0 +1,122 @@
+# Construit les images des DEUX sites et les pousse sur ghcr.io.
+# Le serveur ne compile jamais : il ne fait que tirer ce que ce workflow produit.
+#
+# Convention de nommage — a respecter, sinon le serveur ne trouvera pas les
+# images :
+#     ghcr.io/<proprietaire>/portfolio-<composant>:<tag>
+#
+# Les .env.deploiement des projets doivent donc porter :
+#     REGISTRY_ADDRESS=ghcr.io/valentingaudin/
+#     COMPOSE_PROJECT_NAME=portfolio-home     -> portfolio-home-web
+#     COMPOSE_PROJECT_NAME=portfolio-strava   -> portfolio-strava-web
+#
+# Le prefixe `portfolio` est FIXE, il ne derive pas de `github.repository`.
+# Raison : ce depot s'appelle `valentin_gaudin` pour des raisons historiques,
+# et un nommage derive du depot produirait `valentin_gaudin-home-web` — donc
+# un `manifest unknown` au deploiement, puisque le .env attend
+# `portfolio-home-web`. Un prefixe fixe survit aussi a un renommage du depot.
+#
+# `docker/metadata-action` normalise le proprietaire en MINUSCULES : c'est
+# pourquoi REGISTRY_ADDRESS s'ecrit `ghcr.io/valentingaudin/` alors que le
+# compte GitHub est `ValentinGaudin`.
+name: Construire les images
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
+      - 'tasks/**'
+      - '.github/ISSUE_TEMPLATE/**'
+  workflow_dispatch:
+
+# Annule une construction en cours si un nouveau commit arrive sur la meme
+# branche : sans cela, deux constructions concurrentes peuvent pousser le meme
+# tag et le serveur tirerait la plus lente des deux.
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  REGISTRY: ghcr.io
+
+jobs:
+  construire:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      # Requis pour pousser sur ghcr.io avec le GITHUB_TOKEN automatique :
+      # aucun secret a creer.
+      packages: write
+
+    strategy:
+      # `false` : si l'image du generateur echoue, on veut quand meme savoir
+      # si celle du portfolio passe.
+      fail-fast: false
+      matrix:
+        include:
+          - composant: home-web
+            dockerfile: home/Dockerfile
+          - composant: strava-web
+            dockerfile: stravavisuel/Dockerfile
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Calculer les etiquettes
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ github.repository_owner }}/portfolio-${{ matrix.composant }}
+          tags: |
+            type=ref,event=branch
+            type=sha,format=short
+        # Deux etiquettes, et les deux servent :
+        #   - `main`  : ce que le .env.deploiement du serveur reference ;
+        #   - `sha-x` : identifie precisement une version, donc rend le retour
+        #               arriere possible (IMAGE_TAG=sha-abc1234, puis up -d).
+
+      - name: Construire et pousser
+        uses: docker/build-push-action@v6
+        with:
+          # Le contexte est la RACINE du depot pour les deux images : le
+          # lockfile et pnpm-workspace.yaml y vivent, et `pnpm install
+          # --frozen-lockfile` echouerait sans eux.
+          #
+          # Consequence assumee : les deux images sont reconstruites a chaque
+          # push, meme si un seul site a change. Un filtrage par chemin serait
+          # tentant, mais les deux sites dependent de packages/ — le filtre
+          # produirait le piege « j'ai modifie activity-core, seul le
+          # generateur a ete reconstruit ». Le cache de couches rend la
+          # reconstruction du site non modifie quasi gratuite.
+          context: .
+          file: ${{ matrix.dockerfile }}
+          target: web-production
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          # `mode=max` conserve aussi les couches des etages intermediaires :
+          # sans lui, `pnpm fetch` et l'installation — les etapes les plus
+          # lentes — sont refaites a chaque fois, puisqu'elles appartiennent a
+          # un etage qui ne finit pas dans l'image.
+          cache-from: type=gha,scope=${{ matrix.composant }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.composant }}
+          provenance: false
+
+      - name: Recapitulatif
+        run: |
+          {
+            echo "### Image \`${{ matrix.composant }}\`"
+            echo '```'
+            echo "${{ steps.meta.outputs.tags }}"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,40 @@
+# Strava Visuel — definition commune aux environnements.
+services:
+  web:
+    networks:
+      - proxy
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=${PROXY_NETWORK:-proxy}
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.rule=Host(`${WEB_DOMAIN}`)
+      - traefik.http.services.${COMPOSE_PROJECT_NAME}-web.loadbalancer.server.port=80
+
+      # -------------------------------------------------------------------
+      # Content-Security-Policy
+      #
+      # Declaree dans le fragment COMMUN, pas dans production/ : une CSP
+      # cassante doit se voir en local plutot qu'au deploiement.
+      #
+      # img-src : les trois fournisseurs de tuiles. SANS eux, la
+      # cartographie fonctionne en local (ou aucune CSP ne s'applique si le
+      # proxy local n'en pose pas) et tombe en production. `blob:` est requis
+      # par l'image exportee, `data:` par les actifs incorpores.
+      #
+      # script-src : l'empreinte autorise NOMMEMENT le petit script
+      # d'hydratation d'Expo Router, plutot que d'ouvrir 'unsafe-inline'. Le
+      # Dockerfile verifie que l'export ne contient pas d'autre script en
+      # ligne — un changement d'Expo fait echouer la construction au lieu de
+      # casser l'interactivite en silence.
+      #
+      # style-src : 'unsafe-inline' est INEVITABLE ici. React Native Web
+      # genere ses styles a l'execution et les injecte dans une balise
+      # <style>. Contrairement au portfolio, ce n'est pas un relachement mais
+      # une contrainte du moteur de rendu.
+      # -------------------------------------------------------------------
+      - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}-csp.headers.customResponseHeaders.Content-Security-Policy=default-src 'self'; script-src 'self' 'sha256-67fhrP0+BkBqmgGGXTtgiVO/9EQs3QruYNU/7fnRkI8='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https://tile.openstreetmap.org https://tile.opentopomap.org https://server.arcgisonline.com; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; object-src 'none'"
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.middlewares=${COMPOSE_PROJECT_NAME}-csp
+
+networks:
+  proxy:
+    external: true
+    name: ${PROXY_NETWORK:-proxy}

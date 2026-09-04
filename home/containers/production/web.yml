@@ -1,0 +1,15 @@
+# Portfolio `home` — surcharge PRODUCTION.
+#
+# Aucun `build:` : le serveur ne compile jamais. L'image deployee est
+# exactement celle que la CI a construite et testee.
+#
+# Les listes de labels FUSIONNENT avec celles du fragment commun, elles ne le
+# remplacent pas : la regle de routage et la CSP declarees dans
+# containers/web.yml restent en place.
+services:
+  web:
+    image: ${REGISTRY_ADDRESS}${COMPOSE_PROJECT_NAME}-web:${IMAGE_TAG:-main}
+    restart: unless-stopped
+    labels:
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.entrypoints=websecure
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.tls.certresolver=httpsresolver

@@ -1,0 +1,39 @@
+# Portfolio `home` — definition commune aux environnements.
+#
+# Le service ne parle a personne : il sert des fichiers. Il n'est donc
+# raccorde qu'au reseau du proxy, pas a un reseau interne.
+services:
+  web:
+    networks:
+      - proxy
+    labels:
+      - traefik.enable=true
+      # Le conteneur pouvant appartenir a plusieurs reseaux, Traefik doit
+      # savoir lequel utiliser — sinon il peut retenir une IP qu'il ne sait
+      # pas joindre.
+      - traefik.docker.network=${PROXY_NETWORK:-proxy}
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.rule=Host(`${WEB_DOMAIN}`)
+      - traefik.http.services.${COMPOSE_PROJECT_NAME}-web.loadbalancer.server.port=80
+
+      # -------------------------------------------------------------------
+      # Content-Security-Policy
+      #
+      # Declaree ICI, dans le fragment COMMUN, et non dans production/ :
+      # une CSP trop stricte doit casser en local, ou on la voit, plutot
+      # qu'au deploiement.
+      #
+      # Le socle ne definit volontairement aucune CSP (decision D7) : elle
+      # depend des domaines que charge l'application. Ici, uniquement
+      # Google Fonts.
+      #
+      # Aucun 'unsafe-inline' : le HTML genere ne contient aucun attribut
+      # `style` ni aucun script en ligne (build.inlineStylesheets: 'never').
+      # Verifiable : `grep -c 'style=' dist/index.html` doit rendre 0.
+      # -------------------------------------------------------------------
+      - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}-csp.headers.customResponseHeaders.Content-Security-Policy=default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'; object-src 'none'"
+      - traefik.http.routers.${COMPOSE_PROJECT_NAME}-web.middlewares=${COMPOSE_PROJECT_NAME}-csp
+
+networks:
+  proxy:
+    external: true
+    name: ${PROXY_NETWORK:-proxy}

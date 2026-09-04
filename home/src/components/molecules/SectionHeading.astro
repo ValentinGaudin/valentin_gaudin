@@ -1,0 +1,45 @@
+---
+import SectionNumber from '~/components/atoms/SectionNumber.astro';
+
+interface Props {
+  number: string;
+  title: string;
+  spacing?: 'large' | 'compact';
+  onDarkSurface?: boolean;
+}
+
+const { number, title, spacing = 'large', onDarkSurface = false } = Astro.props;
+---
+
+<div class:list={['section-heading', spacing, { 'on-dark': onDarkSurface }]}>
+  <SectionNumber value={number} />
+  <h2 class="title">{title}</h2>
+</div>
+
+<style>
+  .section-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  .large {
+    margin-bottom: 52px;
+  }
+
+  .compact {
+    margin-bottom: 14px;
+  }
+
+  .title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(38px, 4.4vw, 62px);
+    line-height: 1;
+    margin: 0;
+  }
+
+  .on-dark .title {
+    font-size: clamp(38px, 5vw, 72px);
+  }
+</style>

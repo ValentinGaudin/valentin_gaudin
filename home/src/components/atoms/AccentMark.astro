@@ -1,0 +1,28 @@
+---
+interface Props {
+  shape?: 'carre' | 'point';
+}
+
+const { shape = 'carre' } = Astro.props;
+---
+
+<span class:list={['accent-mark', shape]} aria-hidden="true"></span>
+
+<style>
+  .accent-mark {
+    display: block;
+    flex: none;
+    background: var(--accent);
+  }
+
+  .carre {
+    width: 11px;
+    height: 11px;
+  }
+
+  .point {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+</style>

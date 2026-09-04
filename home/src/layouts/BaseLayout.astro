@@ -1,0 +1,47 @@
+---
+import '~/styles/global.css';
+import {
+  googleFontsPreconnectOrigins,
+  googleFontsStylesheetHref,
+} from '@portfolio/design-tokens';
+import type { SiteMeta } from '~/content/types';
+
+interface Props {
+  meta: SiteMeta;
+}
+
+const { meta } = Astro.props;
+---
+
+<!doctype html>
+<html lang={meta.locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.description} />
+    <meta name="author" content={meta.authorName} />
+    <link rel="canonical" href={meta.canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={meta.title} />
+    <meta property="og:description" content={meta.description} />
+    <meta property="og:url" content={meta.canonicalUrl} />
+    <meta property="og:locale" content={meta.locale} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {googleFontsPreconnectOrigins.map((origin) => (
+      <link
+        rel="preconnect"
+        href={origin}
+        {...origin.includes('gstatic') ? { crossorigin: '' } : {}}
+      />
+    ))}
+    <link rel="stylesheet" href={googleFontsStylesheetHref} />
+
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

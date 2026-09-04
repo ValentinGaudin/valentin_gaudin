@@ -1,0 +1,91 @@
+---
+import MockupStatusBar from './MockupStatusBar.astro';
+import type { PlaceholderMockupContent } from '~/content/types';
+
+interface Props {
+  content: PlaceholderMockupContent;
+}
+
+const { content } = Astro.props;
+---
+
+<MockupStatusBar time={content.statusTime} tone="papier" />
+
+<div class="title-skeleton" aria-hidden="true">
+  <span class="bar wide"></span>
+  <span class="bar narrow"></span>
+</div>
+
+<div class="cards" aria-hidden="true">
+  <div class="card tall"></div>
+  <div class="card tall"></div>
+  <div class="card short"></div>
+</div>
+
+<div class="action-zone">
+  <div class="action">{content.actionLabel}</div>
+</div>
+
+<style>
+  .title-skeleton {
+    padding: 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .bar {
+    display: block;
+    border-radius: 3px;
+  }
+
+  .wide {
+    width: 56%;
+    height: 11px;
+    background: var(--ink-a16);
+  }
+
+  .narrow {
+    width: 34%;
+    height: 8px;
+    background: var(--ink-a1);
+  }
+
+  .cards {
+    padding: 18px 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .card {
+    border-radius: 12px;
+    background: var(--paper-2);
+    border: 1px solid var(--ink-a1);
+  }
+
+  .tall {
+    height: 74px;
+  }
+
+  .short {
+    height: 52px;
+  }
+
+  .action-zone {
+    padding: 0 16px 20px;
+  }
+
+  .action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    border-radius: 99px;
+    border: 1px dashed var(--ink-a28);
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--ink-a42);
+  }
+</style>

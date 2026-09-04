@@ -1,0 +1,30 @@
+{
+  "name": "stravavisuel",
+  "version": "0.1.0",
+  "private": true,
+  "main": "expo-router/entry",
+  "scripts": {
+    "start": "expo start --web",
+    "build": "expo export -p web",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@portfolio/activity-core": "workspace:*",
+    "@portfolio/design-tokens": "workspace:*",
+    "expo": "57.0.19",
+    "expo-constants": "~57.0.17",
+    "expo-document-picker": "~57.0.1",
+    "expo-linking": "~57.0.9",
+    "expo-router": "57.0.18",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "react-native": "0.86.3",
+    "react-native-safe-area-context": "~5.7.0",
+    "react-native-screens": "~4.26.2",
+    "react-native-web": "^0.21.2"
+  },
+  "devDependencies": {
+    "@types/react": "~19.2.2",
+    "typescript": "~6.0.3"
+  }
+}

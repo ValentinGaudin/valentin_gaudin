@@ -1,0 +1,26 @@
+# Portfolio `home` — valentingaudin.com
+#
+#   docker compose up -d
+#
+# Une seule brique : web-static. Ni API, ni base, ni Redis — le site ne sert
+# que des fichiers, n'a aucun secret et aucun etat.
+#
+# `${ENV}` (local | production) selectionne le sous-dossier de surcharge :
+# c'est lui qui decide si le service se CONSTRUIT depuis les sources ou s'il
+# TIRE une image du registre.
+# Le fichier de configuration s'appelle .env.deploiement et non .env : Expo CLI
+# lit automatiquement tout `.env` du dossier de son projet, et REFUSE de
+# demarrer s'il y trouve une variable qu'il juge dangereuse — dont `ENV`, que
+# l'archetype utilise justement pour choisir containers/<ENV>/. Separer les
+# deux fichiers evite le conflit, et garde la configuration de deploiement
+# hors du champ de vision des outils de construction du front.
+#
+#   docker compose --env-file .env.deploiement <commande>
+#
+# Le Makefile pose deja cette option.
+include:
+  - path:
+      - containers/web.yml
+      - containers/${ENV}/web.yml
+    env_file:
+      - .env.deploiement

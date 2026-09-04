@@ -1,0 +1,102 @@
+# Deploie UN site sur le VPS : transfere sa composition, tire l'image produite
+# par build-images.yml, puis redemarre le service.
+#
+# Declenchement MANUEL (`workflow_dispatch`) volontairement, et UN SITE A LA
+# FOIS : deployer le portfolio ne doit pas recreer le conteneur du generateur.
+# C'est la raison d'etre des deux projets Compose distincts.
+name: Deployer
+
+on:
+  workflow_dispatch:
+    inputs:
+      site:
+        description: 'Site a deployer'
+        type: choice
+        required: true
+        options:
+          - home
+          - stravavisuel
+      tag:
+        description: "Etiquette d'image (main, ou sha-abc1234 pour revenir en arriere)"
+        required: true
+        default: main
+
+# Un seul deploiement a la fois, par site. `cancel-in-progress: false` : on ne
+# VEUT PAS interrompre un deploiement en cours.
+concurrency:
+  group: deploy-${{ inputs.site }}
+  cancel-in-progress: false
+
+jobs:
+  deployer:
+    runs-on: ubuntu-latest
+    environment: production   # permet d'exiger une approbation manuelle
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Preparer l'acces SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          # known_hosts renseigne explicitement. Sans lui il faudrait
+          # desactiver la verification de l'hote, ce qui expose le
+          # deploiement — et la clef privee — a une interception.
+          # Obtenir la valeur : ssh-keyscan -p <port> <hote>
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Transferer la composition
+        env:
+          HOTE: ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOSTNAME }}
+          PORT: ${{ secrets.SERVER_PORT }}
+          BASE: ${{ secrets.DEPLOY_PATH }}
+          SITE: ${{ inputs.site }}
+        run: |
+          CIBLE="$BASE/$SITE"
+          ssh -i ~/.ssh/id_deploy -p "$PORT" "$HOTE" \
+            "mkdir -p $CIBLE/containers $CIBLE/nginx"
+          # --delete pour que la suppression d'un fragment dans le depot soit
+          # repercutee. Applique a containers/ et nginx/ SEULEMENT : le
+          # .env.deploiement vit sur le serveur et n'est jamais transfere.
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/id_deploy -p $PORT" \
+            "./$SITE/containers/" "$HOTE:$CIBLE/containers/"
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/id_deploy -p $PORT" \
+            "./$SITE/nginx/" "$HOTE:$CIBLE/nginx/"
+          rsync -az \
+            -e "ssh -i ~/.ssh/id_deploy -p $PORT" \
+            "./$SITE/docker-compose.yml" "$HOTE:$CIBLE/docker-compose.yml"
+
+      - name: Deployer
+        env:
+          HOTE: ${{ secrets.SSH_USER }}@${{ secrets.SERVER_HOSTNAME }}
+          PORT: ${{ secrets.SERVER_PORT }}
+          BASE: ${{ secrets.DEPLOY_PATH }}
+          SITE: ${{ inputs.site }}
+          TAG: ${{ inputs.tag }}
+          REGISTRY_USER: ${{ github.actor }}
+          REGISTRY_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # Le script s'execute sur le VPS mais reste versionne ici : il est
+          # relu a chaque deploiement, jamais installe sur le serveur.
+          ssh -i ~/.ssh/id_deploy -p "$PORT" "$HOTE" \
+            "CIBLE='$BASE/$SITE' TAG='$TAG' \
+             REGISTRY_USER='$REGISTRY_USER' REGISTRY_TOKEN='$REGISTRY_TOKEN' \
+             bash -s" < .github/workflows/deploy-remote.sh
+
+      - name: Recapitulatif
+        if: always()
+        run: |
+          {
+            echo "### Deploiement"
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Site | \`${{ inputs.site }}\` |"
+            echo "| Etiquette | \`${{ inputs.tag }}\` |"
+            echo "| Resultat | ${{ job.status }} |"
+            echo ""
+            echo "Retour arriere : relancer avec l'etiquette \`sha-...\` precedente."
+          } >> "$GITHUB_STEP_SUMMARY"

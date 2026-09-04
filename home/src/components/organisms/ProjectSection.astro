@@ -1,0 +1,167 @@
+---
+import Eyebrow from '~/components/atoms/Eyebrow.astro';
+import SectionHeading from '~/components/molecules/SectionHeading.astro';
+import NumberedRow from '~/components/molecules/NumberedRow.astro';
+import type { ProjectContent } from '~/content/types';
+
+interface Props {
+  content: ProjectContent;
+}
+
+const { content } = Astro.props;
+const lastStepIndex = content.steps.length - 1;
+---
+
+<section id={content.sectionId} class="project">
+  <SectionHeading number={content.sectionNumber} title={content.title} />
+
+  <div class="columns">
+    <div>
+      <Eyebrow
+        text={content.domainLabel}
+        withMark
+        markShape="point"
+        tone="discret"
+      />
+
+      <h3 class="subtitle">{content.subtitle}</h3>
+      <p class="description">{content.description}</p>
+
+      <div class="steps">
+        {content.steps.map((step, index) => (
+          <NumberedRow
+            number={step.number}
+            text={step.text}
+            isLast={index === lastStepIndex}
+          />
+        ))}
+      </div>
+
+      <div class="actions">
+        <a
+          href={content.primaryAction.href}
+          class="primary"
+          {...content.primaryAction.opensInNewTab
+            ? { target: '_blank', rel: 'noreferrer' }
+            : {}}
+        >
+          {content.primaryAction.label}
+        </a>
+        <a href={content.secondaryAction.href} class="secondary">
+          {content.secondaryAction.label}
+        </a>
+        <span class="status">{content.status}</span>
+      </div>
+    </div>
+
+    <div class="preview">
+      <span class="preview-caption">
+        {content.previewCaptionLines.map((line, index) => (
+          <>
+            {index > 0 && <br />}
+            {line}
+          </>
+        ))}
+      </span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .project {
+    border-top: 1px solid var(--ink-a14);
+    padding: clamp(64px, 8vw, 96px) var(--gutter) clamp(72px, 8vw, 104px);
+  }
+
+  .columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(40px, 5vw, 72px);
+    align-items: start;
+  }
+
+  .subtitle {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 34px;
+    margin: 18px 0 0;
+    line-height: 1.2;
+  }
+
+  .description {
+    max-width: 560px;
+    margin: 26px 0 0;
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--ink-a75);
+  }
+
+  .steps {
+    display: flex;
+    flex-direction: column;
+    margin: 44px 0 0;
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px 28px;
+    margin-top: 40px;
+  }
+
+  .primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    letter-spacing: .06em;
+    padding: 15px 26px;
+    background: var(--ink);
+    color: var(--paper);
+    transition: background .2s, color .2s;
+  }
+
+  .primary:hover {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  .secondary {
+    font-size: 13px;
+    letter-spacing: .04em;
+    border-bottom: 1px solid var(--ink-a3);
+    padding-bottom: 3px;
+  }
+
+  .status {
+    font-size: 12px;
+    letter-spacing: .12em;
+    color: var(--ink-a45);
+  }
+
+  .preview {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    width: 100%;
+    max-width: 400px;
+    max-height: 640px;
+    justify-self: end;
+    border: 1px solid var(--ink-a2);
+    background-image: repeating-linear-gradient(
+      135deg,
+      var(--ink-a07) 0 2px,
+      transparent 2px 9px
+    );
+    display: flex;
+    align-items: flex-end;
+    padding: 22px;
+  }
+
+  .preview-caption {
+    font-size: 11px;
+    line-height: 1.6;
+    letter-spacing: .1em;
+    color: var(--ink-a55);
+  }
+</style>

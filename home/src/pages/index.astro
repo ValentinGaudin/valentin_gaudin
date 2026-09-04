@@ -1,0 +1,42 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import SiteHeader from '~/components/organisms/SiteHeader.astro';
+import NavigationDock from '~/components/organisms/NavigationDock.astro';
+import HeroSection from '~/components/organisms/HeroSection.astro';
+import ProjectSection from '~/components/organisms/ProjectSection.astro';
+import LabSection from '~/components/organisms/LabSection.astro';
+import StackSection from '~/components/organisms/StackSection.astro';
+import ContactFooter from '~/components/organisms/ContactFooter.astro';
+import { contenuActif } from '~/content';
+---
+
+<BaseLayout meta={contenuActif.meta}>
+  <div class="page">
+    <SiteHeader content={contenuActif.header} />
+    <NavigationDock content={contenuActif.navigation} />
+    <HeroSection content={contenuActif.hero} />
+    <ProjectSection content={contenuActif.project} />
+    <LabSection content={contenuActif.lab} />
+    <StackSection content={contenuActif.stack} />
+    <ContactFooter content={contenuActif.contact} />
+  </div>
+</BaseLayout>
+
+<script>
+  import { observerSectionActive } from '~/scripts/dock-active-section';
+  import { synchroniserRailEtPastilles } from '~/scripts/rail-pagination';
+  import { demarrerCanvasRelief } from '~/scripts/ridge-canvas';
+  import { demarrerCanvasTore } from '~/scripts/torus-canvas';
+
+  observerSectionActive();
+  synchroniserRailEtPastilles();
+  demarrerCanvasRelief();
+  demarrerCanvasTore();
+</script>
+
+<style>
+  .page {
+    min-height: 100vh;
+    background: var(--paper);
+  }
+</style>

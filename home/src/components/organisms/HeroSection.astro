@@ -1,0 +1,94 @@
+---
+import Eyebrow from '~/components/atoms/Eyebrow.astro';
+import type { HeroContent } from '~/content/types';
+
+interface Props {
+  content: HeroContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section id={content.sectionId} class="hero">
+  <canvas data-ridge-canvas aria-hidden="true"></canvas>
+
+  <div class="top">
+    <Eyebrow text={content.availability} withMark />
+    <h1>
+      {content.headlineLines.map((line, index) => (
+        <>
+          {index > 0 && <br />}
+          {line}
+        </>
+      ))}
+    </h1>
+    <p class="subline">{content.subline}</p>
+  </div>
+
+  <div class="bottom">
+    <span>{content.scrollHint}</span>
+    <span>{content.year}</span>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    min-height: calc(100dvh - 74px);
+    background-image: linear-gradient(90deg, var(--ink-a055) 1px, transparent 1px);
+    background-size: calc((100% - 2 * var(--gutter)) / 6) 100%;
+    background-position: var(--gutter) 0;
+  }
+
+  @media (min-width: 761px) {
+    .hero {
+      min-height: max(760px, calc(100vh - 66px));
+    }
+  }
+
+  canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .9;
+  }
+
+  .top {
+    position: relative;
+    padding: clamp(26px, 6vh, 92px) var(--gutter) 0;
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: max(44px, min(8.5vw, 15.5vh, 124px));
+    line-height: .94;
+    letter-spacing: -.025em;
+    margin: clamp(18px, 3.4vh, 34px) 0 0;
+  }
+
+  .subline {
+    max-width: 520px;
+    margin: clamp(18px, 3.4vh, 38px) 0 0;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--ink-a72);
+  }
+
+  .bottom {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 20px;
+    padding: clamp(20px, 4vh, 44px) var(--gutter) 104px;
+    font-size: 11px;
+    letter-spacing: .14em;
+    color: var(--ink-a45);
+  }
+</style>

@@ -1,0 +1,63 @@
+---
+interface Props {
+  screenTone: 'sombre' | 'papier';
+}
+
+const { screenTone } = Astro.props;
+---
+
+<div class="bezel">
+  <div class:list={['screen', screenTone]}>
+    <span class="notch" aria-hidden="true"></span>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .bezel {
+    width: 100%;
+    max-width: 288px;
+    aspect-ratio: 9 / 18.5;
+    background: var(--bezel);
+    border-radius: 40px;
+    padding: 8px;
+    box-shadow: 0 16px 38px var(--ink-a18);
+    transition:
+      transform .5s cubic-bezier(.2, .7, .2, 1),
+      box-shadow .5s;
+  }
+
+  .bezel:hover {
+    transform: translateY(-16px) rotateX(8deg) rotateY(-9deg);
+    box-shadow: -26px 38px 66px var(--ink-a32);
+  }
+
+  .screen {
+    position: relative;
+    height: 100%;
+    border-radius: 33px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sombre {
+    background: #111111;
+  }
+
+  .papier {
+    background: var(--paper);
+  }
+
+  .notch {
+    position: absolute;
+    left: 50%;
+    top: 9px;
+    transform: translateX(-50%);
+    width: 74px;
+    height: 5px;
+    border-radius: 99px;
+    background: rgba(255, 255, 255, .22);
+    z-index: 2;
+  }
+</style>

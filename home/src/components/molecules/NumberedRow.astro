@@ -1,0 +1,36 @@
+---
+import SectionNumber from '~/components/atoms/SectionNumber.astro';
+
+interface Props {
+  number: string;
+  text: string;
+  isLast?: boolean;
+}
+
+const { number, text, isLast = false } = Astro.props;
+---
+
+<div class:list={['numbered-row', { last: isLast }]}>
+  <SectionNumber value={number} variant="accent" />
+  <span class="text">{text}</span>
+</div>
+
+<style>
+  .numbered-row {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 22px;
+    align-items: baseline;
+    padding: 20px 0;
+    border-top: 1px solid var(--ink-a16);
+  }
+
+  .last {
+    border-bottom: 1px solid var(--ink-a16);
+  }
+
+  .text {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,29 @@
+---
+interface Props {
+  value: string;
+  variant?: 'discret' | 'accent';
+}
+
+const { value, variant = 'discret' } = Astro.props;
+---
+
+<span class:list={['section-number', variant]}>{value}</span>
+
+<style>
+  .section-number {
+    line-height: 1;
+  }
+
+  .discret {
+    font-size: 12px;
+    letter-spacing: .14em;
+    color: var(--ink-a45);
+  }
+
+  .accent {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--accent);
+  }
+</style>

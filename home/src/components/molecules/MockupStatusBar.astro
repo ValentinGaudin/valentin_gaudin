@@ -1,0 +1,74 @@
+---
+interface Props {
+  time: string;
+  tone: 'sombre' | 'papier';
+}
+
+const { time, tone } = Astro.props;
+---
+
+<div class:list={['status-bar', tone]}>
+  <span>{time}</span>
+  <div class="indicators" aria-hidden="true">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="battery"></span>
+  </div>
+</div>
+
+<style>
+  .status-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px 0;
+    font-size: 9.5px;
+    letter-spacing: .06em;
+  }
+
+  .sombre {
+    color: rgba(240, 235, 227, .6);
+  }
+
+  .papier {
+    color: var(--ink-a45);
+  }
+
+  .indicators {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+  }
+
+  .dot {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 99px;
+  }
+
+  .battery {
+    display: block;
+    width: 14px;
+    height: 7px;
+    border-radius: 2px;
+    border-style: solid;
+    border-width: 1px;
+  }
+
+  .sombre .dot {
+    background: rgba(240, 235, 227, .5);
+  }
+
+  .sombre .battery {
+    border-color: rgba(240, 235, 227, .5);
+  }
+
+  .papier .dot {
+    background: var(--ink-a35);
+  }
+
+  .papier .battery {
+    border-color: var(--ink-a35);
+  }
+</style>

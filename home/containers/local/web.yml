@@ -1,0 +1,29 @@
+# Portfolio `home` — surcharge DEVELOPPEMENT.
+#
+# Ce service construit le bundle de PRODUCTION et le sert par nginx. Ce n'est
+# PAS l'environnement de travail quotidien : ni rechargement a chaud, ni carte
+# de source, et chaque modification impose `docker compose build web`.
+#
+# Pour developper :  pnpm dev:home
+#
+# L'interet de ce service en local est de verifier que le bundle de production
+# fonctionne AVANT de deployer — en particulier la resolution des routes, les
+# en-tetes de cache et la CSP, qui n'existent pas dans le serveur de
+# developpement d'Astro.
+services:
+  web:
+    build:
+      # RACINE du depot, pas home/ : le lockfile et pnpm-workspace.yaml y
+      # vivent. Ce chemin se resout depuis containers/, pas depuis la racine
+      # du projet — Compose fixe le repertoire de base d'une inclusion au
+      # dossier parent du PREMIER fichier de la liste `path:`.
+      context: ../..
+      dockerfile: home/Dockerfile
+      target: web-production
+    volumes:
+      # Configuration nginx MONTEE en local, cuite dans l'image en production.
+      # L'etage de construction fait `COPY . .` : sans ce montage, modifier
+      # une ligne de nginx invaliderait le cache et imposerait de reconstruire
+      # tout le site. Avec lui : `docker compose restart web`, deux secondes.
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../nginx/default.conf:/etc/nginx/conf.d/default.conf:ro

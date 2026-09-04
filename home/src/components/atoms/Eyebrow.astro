@@ -1,0 +1,34 @@
+---
+import AccentMark from './AccentMark.astro';
+
+interface Props {
+  text: string;
+  withMark?: boolean;
+  markShape?: 'carre' | 'point';
+  tone?: 'defaut' | 'discret';
+}
+
+const { text, withMark = false, markShape = 'carre', tone = 'defaut' } = Astro.props;
+---
+
+<div class:list={['eyebrow-row', tone]}>
+  {withMark && <AccentMark shape={markShape} />}
+  <span>{text}</span>
+</div>
+
+<style>
+  .eyebrow-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    letter-spacing: .14em;
+    color: var(--ink-a55);
+  }
+
+  .discret {
+    gap: 12px;
+    letter-spacing: .1em;
+    color: var(--ink-a5);
+  }
+</style>

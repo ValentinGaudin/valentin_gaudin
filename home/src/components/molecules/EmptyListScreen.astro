@@ -1,0 +1,108 @@
+---
+import MockupStatusBar from './MockupStatusBar.astro';
+import type { PlaceholderMockupContent } from '~/content/types';
+
+interface Props {
+  content: PlaceholderMockupContent;
+}
+
+const { content } = Astro.props;
+
+const rowCount = 5;
+const rows = Array.from({ length: rowCount }, (_, index) => index);
+---
+
+<MockupStatusBar time={content.statusTime} tone="papier" />
+
+<div class="title-skeleton" aria-hidden="true">
+  <span class="bar wide"></span>
+  <span class="bar narrow"></span>
+</div>
+
+<div class="rows" aria-hidden="true">
+  {rows.map(() => (
+    <div class="row">
+      <span class="thumb"></span>
+      <span class="line"></span>
+    </div>
+  ))}
+</div>
+
+<div class="action-zone">
+  <div class="action">{content.actionLabel}</div>
+</div>
+
+<style>
+  .title-skeleton {
+    padding: 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .bar {
+    display: block;
+    border-radius: 3px;
+  }
+
+  .wide {
+    width: 56%;
+    height: 11px;
+    background: var(--ink-a16);
+  }
+
+  .narrow {
+    width: 34%;
+    height: 8px;
+    background: var(--ink-a1);
+  }
+
+  .rows {
+    padding: 18px 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 2px;
+    border-bottom: 1px solid var(--ink-a09);
+  }
+
+  .thumb {
+    display: block;
+    flex: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 7px;
+    background: var(--ink-a1);
+  }
+
+  .line {
+    display: block;
+    flex: 1;
+    height: 7px;
+    border-radius: 3px;
+    background: var(--ink-a12);
+  }
+
+  .action-zone {
+    padding: 0 16px 20px;
+  }
+
+  .action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 38px;
+    border-radius: 99px;
+    border: 1px dashed var(--ink-a28);
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--ink-a42);
+  }
+</style>

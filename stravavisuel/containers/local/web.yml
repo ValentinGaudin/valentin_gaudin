@@ -1,0 +1,23 @@
+# Strava Visuel — surcharge DEVELOPPEMENT.
+#
+# Ce service construit l'export de PRODUCTION et le sert par nginx. Pour
+# developper, lancer le serveur Expo hors Docker :
+#
+#     pnpm dev:strava
+#
+# L'interet de ce service en local est de verifier ce que le serveur de
+# developpement ne montre pas : la resolution des routes, les en-tetes de
+# cache, et surtout la CSP — dont le blocage des tuiles cartographiques est
+# le mode de defaillance le plus probable.
+services:
+  web:
+    build:
+      # RACINE du depot. Ce chemin se resout depuis containers/, pas depuis
+      # la racine du projet : Compose fixe le repertoire de base d'une
+      # inclusion au dossier parent du PREMIER fichier de la liste `path:`.
+      context: ../..
+      dockerfile: stravavisuel/Dockerfile
+      target: web-production
+    volumes:
+      - ../nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ../nginx/default.conf:/etc/nginx/conf.d/default.conf:ro

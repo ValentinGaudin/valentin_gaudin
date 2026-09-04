@@ -1,0 +1,47 @@
+---
+import SectionNumber from '~/components/atoms/SectionNumber.astro';
+import TechChip from '~/components/atoms/TechChip.astro';
+import type { StackGroup } from '~/content/types';
+
+interface Props {
+  group: StackGroup;
+}
+
+const { group } = Astro.props;
+---
+
+<div class="stack-group">
+  <div class="head">
+    <SectionNumber value={group.number} variant="accent" />
+    <span class="name">{group.title}</span>
+  </div>
+  <div class="chips">
+    {group.technologies.map((technology) => <TechChip label={technology} />)}
+  </div>
+</div>
+
+<style>
+  .stack-group {
+    border-top: 1px solid var(--ink-a16);
+    padding: 22px 0 30px;
+  }
+
+  .head {
+    display: flex;
+    gap: 16px;
+    align-items: baseline;
+    margin-bottom: 18px;
+  }
+
+  .name {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .06em;
+  }
+
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 8px;
+  }
+</style>

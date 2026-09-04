@@ -1,0 +1,19 @@
+{
+  "expo": {
+    "name": "Strava Visuel",
+    "slug": "strava-visuel",
+    "scheme": "stravavisuel",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "web": {
+      "output": "static",
+      "bundler": "metro"
+    },
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    }
+  }
+}

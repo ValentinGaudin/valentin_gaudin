@@ -1,0 +1,99 @@
+---
+import SectionHeading from '~/components/molecules/SectionHeading.astro';
+import ExperimentCard from '~/components/molecules/ExperimentCard.astro';
+import type { LabContent } from '~/content/types';
+
+interface Props {
+  content: LabContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section id={content.sectionId} class="lab">
+  <SectionHeading
+    number={content.sectionNumber}
+    title={content.title}
+    spacing="compact"
+  />
+  <p class="intro">{content.intro}</p>
+
+  <div data-rail data-experiment-rail class="rail">
+    {content.experiments.map((experiment) => (
+      <ExperimentCard
+        experiment={experiment}
+        stravaMockup={content.stravaMockup}
+        placeholderMockup={content.placeholderMockup}
+      />
+    ))}
+  </div>
+
+  <div class="pagination">
+    {content.experiments.map((_, index) => (
+      <button
+        type="button"
+        class="dot"
+        data-rail-dot={index}
+        aria-label={`${content.slideAriaLabelPrefix} ${index + 1}`}
+      ></button>
+    ))}
+    <span class="hint">{content.swipeHint}</span>
+  </div>
+</section>
+
+<style>
+  .lab {
+    border-top: 1px solid var(--ink-a14);
+    padding: clamp(64px, 8vw, 96px) var(--gutter) clamp(72px, 8vw, 104px);
+  }
+
+  .intro {
+    max-width: 520px;
+    margin: 0 0 52px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink-a6);
+  }
+
+  .rail {
+    display: flex;
+    gap: clamp(24px, 5vw, 52px);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain;
+    padding: 6px calc(50% - min(144px, 38vw)) 14px;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 26px;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 99px;
+    background: var(--ink-a2);
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    transition:
+      width .35s cubic-bezier(.2, .7, .2, 1),
+      background .35s;
+  }
+
+  .dot[data-active='true'] {
+    width: 30px;
+    background: var(--accent);
+  }
+
+  .hint {
+    margin-left: 8px;
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: var(--ink-a45);
+  }
+</style>

@@ -1,0 +1,53 @@
+packages:
+  - packages/*
+  - home
+  - stravavisuel
+
+# Metro, le bundler d'Expo, ne suit pas les liens symboliques de pnpm : avec
+# l'arborescence isolee par defaut, il ne resout pas @expo/metro-runtime et
+# l'erreur n'apparait qu'au bundling, longtemps apres l'installation.
+#
+# Ce reglage vivait dans .npmrc jusqu'a pnpm 10. pnpm 11 ne lit plus ce
+# fichier : toute la configuration a migre ici.
+nodeLinker: hoisted
+
+# React Native declare des pairs larges que le SDK Expo contredit parfois. Sans
+# ces deux lignes, l'installation echoue sur des conflits que l'equipe Expo a
+# elle-meme arbitres dans sa matrice de compatibilite.
+strictPeerDependencies: false
+autoInstallPeers: true
+
+allowBuilds:
+  esbuild: true
+
+# ---------------------------------------------------------------------------
+# Epinglage du SDK Expo — temporaire, a lever
+# ---------------------------------------------------------------------------
+# pnpm refuse par defaut tout paquet publie depuis moins de 24 heures
+# (minimumReleaseAge). C'est une protection contre les attaques de chaine
+# d'approvisionnement : un paquet compromis fraichement publie n'est pas
+# installe avant que la communaute ait pu le reperer.
+#
+# Le SDK Expo 57.0.20 est sorti le 2026-09-04 au matin — soit pendant la mise
+# en place de ce projet. La construction de l'image echouait donc, alors que
+# l'installation locale passait : `expo install` s'etait execute avec une
+# version de pnpm anterieure a cette politique.
+#
+# On epingle donc toute la ligne du 2026-09-01, assez mure pour la politique.
+# Ce n'est PAS un contournement de la protection : c'est son application.
+#
+# A LEVER une fois la ligne 57.0.20 vieille de plus d'un jour :
+#   1. supprimer ce bloc `overrides`
+#   2. rendre "expo-router" a "~57.0.19" dans stravavisuel/package.json
+#   3. pnpm install && pnpm --filter stravavisuel build
+# ---------------------------------------------------------------------------
+overrides:
+  expo: 57.0.19
+  expo-router: 57.0.18
+  "@expo/ui": 57.0.15
+  "@expo/cli": 57.0.21
+  "@expo/metro-runtime": 57.0.15
+  expo-modules-core: 57.0.15
+  expo-modules-jsi: 57.0.7
+  expo-constants: 57.0.17
+  expo-linking: 57.0.9
